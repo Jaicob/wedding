@@ -211,7 +211,7 @@ export class StardewValentine {
     this.scene = 'cabin'; // 'cabin' or 'outdoor'
 
     // Music
-    this.music = new Audio('/assets/36 Pleasant Memory (Penny\'s Theme).mp3');
+    this.music = new Audio(`${import.meta.env.BASE_URL}assets/36 Pleasant Memory (Penny's Theme).mp3`);
     this.music.loop = true;
     this.music.volume = 0.4;
 

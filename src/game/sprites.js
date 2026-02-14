@@ -106,24 +106,25 @@ function recolorSprite(src, colorMap) {
 // ════════════════════════════════════════════
 
 export async function loadSpriteSheets() {
+  const base = import.meta.env.BASE_URL;
   const sources = {
     // Original sheets (mail + emotes)
-    mail:    '/assets/sprites/mail.png',
-    emotes:  '/assets/sprites/emotes.png',
+    mail:    `${base}assets/sprites/mail.png`,
+    emotes:  `${base}assets/sprites/emotes.png`,
     // Pre-cropped reference sheets
-    body:    '/assets/sprites/ref/player-body.png',
-    hair:    '/assets/sprites/ref/player-hair.png',
-    shirt:   '/assets/sprites/ref/player-shirt.png',
-    pants:   '/assets/sprites/ref/player-pants.png',
-    cabin:   '/assets/sprites/ref/cabin.png',
-    bed:     '/assets/sprites/ref/bed.png',
-    flower:  '/assets/sprites/ref/flower.png',
-    mailbox: '/assets/sprites/ref/mailbox.png',
-    trees:   '/assets/sprites/ref/trees.png',
-    floor:   '/assets/sprites/ref/indoor-floors.png',
-    walls:   '/assets/sprites/ref/indoor-walls.png',
-    outdoor: '/assets/sprites/ref/outdoors.png',
-    tv:      '/assets/sprites/ref/tv.png',
+    body:    `${base}assets/sprites/ref/player-body.png`,
+    hair:    `${base}assets/sprites/ref/player-hair.png`,
+    shirt:   `${base}assets/sprites/ref/player-shirt.png`,
+    pants:   `${base}assets/sprites/ref/player-pants.png`,
+    cabin:   `${base}assets/sprites/ref/cabin.png`,
+    bed:     `${base}assets/sprites/ref/bed.png`,
+    flower:  `${base}assets/sprites/ref/flower.png`,
+    mailbox: `${base}assets/sprites/ref/mailbox.png`,
+    trees:   `${base}assets/sprites/ref/trees.png`,
+    floor:   `${base}assets/sprites/ref/indoor-floors.png`,
+    walls:   `${base}assets/sprites/ref/indoor-walls.png`,
+    outdoor: `${base}assets/sprites/ref/outdoors.png`,
+    tv:      `${base}assets/sprites/ref/tv.png`,
   };
   const sheets = {};
   await Promise.all(

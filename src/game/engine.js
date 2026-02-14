@@ -14,7 +14,7 @@ const GH = 240;         // game height
 const COLS = GW / T;    // 20 visible tile columns
 const ROWS = GH / T;    // 15 visible tile rows
 const WALK_SPEED = 1.5; // pixels per frame
-const ANIM_RATE = 16;   // frames between walk animation changes
+const ANIM_RATE = 64;   // frames between walk animation changes
 const SCALE = 3;        // render at 3x for crisp fonts/sprites
 
 // Tile types
@@ -33,10 +33,12 @@ const TC = 11; // tree canopy
 const BH = 12; // bed head
 const BF = 13; // bed foot
 const MB = 14; // mailbox
-const TB = 15; // table
-const RG = 16; // rug
-const FN = 17; // fence
-const CD = 18; // cabin door (outdoor)
+const TT = 15; // TV top
+const TB = 16; // TV bottom
+const RG = 17; // rug
+const FN = 18; // fence
+const CD = 19; // cabin door (outdoor)
+const CB = 20; // cabin body (outdoor, non-walkable, renders as grass)
 
 // Walkability
 const WALKABLE = new Set([G, F, P, W, D, BF, RG, CD]);
@@ -48,7 +50,7 @@ const CABIN_MAP = [
   [LT,LT,LT,LT,LT,LT,LT,LT,LT,LT,LT,LT],
   [L, W, W, W, W, W, W, W, BH,BH, W, L],
   [L, W, W, W, W, W, W, W, BF,BF, W, L],
-  [L, W, W, W, W, W, W, W, W, W, W, L],
+  [L, W, TT, W, W, W, W, W, W, W, W, L],
   [L, W, TB, W, RG,RG, W, W, W, W, W, L],
   [L, W, W, W, RG,RG, W, W, W, W, W, L],
   [L, W, W, W, W, W, W, W, W, W, W, L],
@@ -73,6 +75,20 @@ const HEART = [
   '................',
 ];
 
+// All tree positions (trunk base x,y) — each tree is 3x5 tiles (48x80 sprite)
+const TREE_POSITIONS = [
+  // Top border (trunk y=4, canopy extends above)
+  [3,4], [6,4], [9,4], [19,4], [22,4], [25,4], [28,4],
+  // Bottom border (trunk y=24)
+  [3,24], [6,24], [9,24], [12,24], [15,24], [18,24], [21,24], [24,24], [27,24],
+  // Left border (trunk x=3)
+  [3,7], [3,10], [3,13], [3,16], [3,19], [3,22],
+  // Right border (trunk x=28)
+  [28,7], [28,10], [28,13], [28,16], [28,19], [28,22],
+  // Interior scattered
+  [6,9], [25,9], [6,19], [25,19],
+];
+
 function buildOutdoorMap() {
   const W_MAP = 32;
   const H_MAP = 28;
@@ -90,39 +106,27 @@ function buildOutdoorMap() {
     for (let x = 0; x < W_MAP; x++)
       if (map[y][x] === G && rng() < 0.15) map[y][x] = F;
 
-  // Trees border
-  for (let x = 0; x < W_MAP; x++) {
-    for (let d = 0; d < 2; d++) { map[d][x] = TC; map[H_MAP - 1 - d][x] = TC; }
-    map[2][x] = TK;
-    map[H_MAP - 3][x] = TK;
-  }
-  for (let y = 0; y < H_MAP; y++) {
-    for (let d = 0; d < 2; d++) { map[y][d] = TC; map[y][W_MAP - 1 - d] = TC; }
-    map[y][2] = TK;
-    map[y][W_MAP - 3] = TK;
-  }
+  // Non-walkable border (3 tiles deep, renders as grass under tree sprites)
+  for (let y = 0; y < H_MAP; y++)
+    for (let x = 0; x < W_MAP; x++)
+      if (y < 3 || y >= H_MAP - 3 || x < 3 || x >= W_MAP - 3)
+        map[y][x] = CB;
 
-  // Clear center area
-  for (let y = 3; y < H_MAP - 3; y++)
-    for (let x = 3; x < W_MAP - 3; x++)
-      if (map[y][x] === TC || map[y][x] === TK) map[y][x] = G;
-
-  // Scatter a few individual trees
-  const treePoses = [[4,4],[5,4],[27,4],[26,4],[4,22],[5,22],[26,22],[27,22],[4,13],[27,13]];
-  for (const [tx, ty] of treePoses) {
-    if (ty > 0) map[ty - 1][tx] = TC;
-    map[ty][tx] = TK;
+  // Tree trunk collision (non-walkable) at each tree position
+  for (const [tx, ty] of TREE_POSITIONS) {
+    if (ty >= 0 && ty < H_MAP) map[ty][tx] = CB;
+    if (ty - 1 >= 0) map[ty - 1][tx] = CB;
   }
 
-  // Cabin exterior at top center
-  const cabinX = 13;
-  const cabinY = 3;
-  // Mark cabin area as non-walkable
-  for (let dy = 0; dy < 3; dy++)
-    for (let dx = 0; dx < 3; dx++)
-      map[cabinY + dy][cabinX + dx] = L;
-  // Cabin door
-  map[cabinY + 3][cabinX + 1] = CD;
+  // Cabin exterior at top center (8 tiles wide at native 128x144)
+  const cabinX = 10;
+  // Collision: 8 wide x 5 tall covering the building body (y=3..7)
+  // Uses CB (renders as grass under cabin sprite, not indoor wall)
+  for (let dy = 0; dy < 5; dy++)
+    for (let dx = 0; dx < 8; dx++)
+      map[3 + dy][cabinX + dx] = CB;
+  // Cabin door at bottom center
+  map[8][14] = CD;
 
   // Heart-shaped rose garden (placed before path so path cuts through)
   const hx = 10; // garden start x
@@ -135,14 +139,17 @@ function buildOutdoorMap() {
     }
   }
 
-  // Path from cabin door down through garden to below heart
-  const pathX = cabinX + 1; // x=14
-  for (let y = cabinY + 3; y <= 22; y++) map[y][pathX] = P;
-
-  // Small pond on the right side
-  for (let py = 9; py <= 12; py++)
-    for (let px = 22; px <= 25; px++)
-      map[py][px] = WA;
+  // Path from cabin door down, around heart, and entering from bottom
+  // Vertical path from cabin to just above heart (y=9..11)
+  for (let y = 9; y <= 11; y++) map[y][14] = P;
+  // Go left to avoid heart interior (y=11, x=14..9)
+  for (let x = 9; x <= 14; x++) map[11][x] = P;
+  // Down the left side, outside the heart (x=9, y=11..22)
+  for (let y = 11; y <= 22; y++) map[y][9] = P;
+  // Along the bottom to heart entry gap (y=22, x=9..15)
+  for (let x = 9; x <= 15; x++) map[22][x] = P;
+  // Enter heart from bottom, up to near mailbox (x=15, y=22..18)
+  for (let y = 18; y <= 22; y++) map[y][15] = P;
 
   // Re-scatter flowers on remaining grass
   for (let y = 3; y < H_MAP - 3; y++)
@@ -203,6 +210,11 @@ export class StardewValentine {
     this.mapH = CABIN_MAP.length;
     this.scene = 'cabin'; // 'cabin' or 'outdoor'
 
+    // Music
+    this.music = new Audio('/assets/36 Pleasant Memory (Penny\'s Theme).mp3');
+    this.music.loop = true;
+    this.music.volume = 0.4;
+
     // Interaction
     this.showInteractPrompt = false;
     this.letterOpen = false;
@@ -259,6 +271,8 @@ export class StardewValentine {
 
   destroy() {
     this.running = false;
+    this.music.pause();
+    this.music.currentTime = 0;
     window.removeEventListener('keydown', this._onKeyDown);
     window.removeEventListener('keyup', this._onKeyUp);
     this.canvas.removeEventListener('click', this._onClick);
@@ -305,6 +319,7 @@ export class StardewValentine {
 
   _handleClick() {
     if (this.state === 'TITLE') {
+      this.music.play().catch(() => {});
       this._fadeToState('DAY_START');
     } else if (this.state === 'LETTER') {
       this.letterOpen = false;
@@ -351,10 +366,15 @@ export class StardewValentine {
         this.player.walking = false;
         break;
       case 'CABIN':
-        // Player stands next to bed
-        this.player.tx = 7; this.player.ty = 3;
-        this.player.px = 7 * T; this.player.py = 3 * T;
-        this.player.dir = 'down';
+        this.map = CABIN_MAP;
+        this.mapW = CABIN_MAP[0].length;
+        this.mapH = CABIN_MAP.length;
+        this.scene = 'cabin';
+        // Player enters at door, facing up
+        this.player.tx = 5; this.player.ty = 7;
+        this.player.px = 5 * T; this.player.py = 7 * T;
+        this.player.dir = 'up';
+        this.player.walking = false;
         break;
       case 'OUTDOOR':
         this.map = OUTDOOR_MAP;
@@ -362,8 +382,8 @@ export class StardewValentine {
         this.mapH = OUTDOOR_MAP.length;
         this.scene = 'outdoor';
         this._mailboxPos = null; // recalculate
-        this.player.tx = 14; this.player.ty = 7;
-        this.player.px = 14 * T; this.player.py = 7 * T;
+        this.player.tx = 14; this.player.ty = 9;
+        this.player.px = 14 * T; this.player.py = 9 * T;
         this.player.dir = 'down';
         this.player.walking = false;
         break;
@@ -411,6 +431,7 @@ export class StardewValentine {
     }
     // Start on keypress
     if (this.keys['Space'] || this.keys['Enter']) {
+      this.music.play().catch(() => {});
       this._fadeToState('DAY_START');
     }
   }
@@ -453,7 +474,7 @@ export class StardewValentine {
           return;
         }
         if (this.scene === 'outdoor' && this.map[p.ty]?.[p.tx] === CD) {
-          this._fadeToState('WAKEUP');
+          this._fadeToState('CABIN');
           return;
         }
       } else {
@@ -753,9 +774,32 @@ export class StardewValentine {
       }
     }
 
-    // Cabin exterior object
+    // Cabin exterior object (8x9 tiles, sprite top at y=0 so bottom aligns with door at y=8)
     const cabinSprite = this.sprites.objects.cabin;
-    ctx.drawImage(cabinSprite, ox + 13 * T, oy + 3 * T);
+    ctx.drawImage(cabinSprite, ox + 10 * T, oy);
+
+    // Flower + mailbox overlays (drawn after tiles so full 1x2 sprites are visible)
+    const roseSpr = this.sprites.tiles.rose;
+    const mailSpr = this.sprites.tiles.mailbox;
+    for (let y = startRow; y < endRow; y++) {
+      for (let x = startCol; x < endCol; x++) {
+        const tile = this.map[y][x];
+        if (tile === R && roseSpr) {
+          ctx.drawImage(roseSpr, ox + x * T, oy + y * T - T);
+        } else if (tile === MB && mailSpr) {
+          ctx.drawImage(mailSpr, ox + x * T, oy + y * T - T);
+        }
+      }
+    }
+
+    // Standalone trees (3x5 sprites, drawn after tiles)
+    const treeSpr = this.sprites.objects.tree;
+    if (treeSpr) {
+      for (const [tx, ty] of TREE_POSITIONS) {
+        // Sprite is 48x80; top-left at (tx-1, ty-4) in tiles
+        ctx.drawImage(treeSpr, ox + (tx - 1) * T, oy + (ty - 4) * T);
+      }
+    }
 
     // Heart indicator bouncing above mailbox
     this._renderMailboxHeart(ctx, ox, oy);
@@ -904,22 +948,24 @@ export class StardewValentine {
     switch (tile) {
       case G:  return s.grass[variant];
       case F:  return s.grassFlower[variant];
-      case P:  return s.path[variant];
+      case P:  return s.path;
       case W:  return s.floor;
       case L:  return s.wall;
       case LT: return s.wallTop;
       case D:  return s.door;
       case WA: return s.water[waterFrame];
-      case R:  return s.rose;
+      case R:  return s.grass[variant]; // ground only; flower overlay drawn separately
       case TK: return s.treeTrunk;
       case TC: return s.treeCanopy;
       case BH: return s.bedHead;
       case BF: return s.bedFoot;
-      case MB: return s.mailbox;
-      case TB: return s.table;
+      case MB: return s.grass[variant]; // ground only; mailbox overlay drawn separately
+      case TT: return s.tvTop;
+      case TB: return s.tvBottom;
       case RG: return s.rug;
       case FN: return s.fence;
       case CD: return s.door; // reuse door sprite for cabin entrance
+      case CB: return s.grass[variant]; // cabin body — grass under cabin sprite
       default: return null;
     }
   }

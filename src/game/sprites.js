@@ -7,7 +7,7 @@
  *   player-hair.png   16x96  — 1 frame x 3 directions at 16x32
  *   player-shirt.png   8x32  — 4 rows of 8x8 (down/right/up/left)
  *   player-pants.png  48x96  — same layout as body
- *   cabin.png        128x133 — full cabin exterior sprite
+ *   cabin.png        128x144 — full cabin exterior sprite (8x9 tiles native)
  *   bed.png           48x55  — bed furniture sprite
  *   flower.png        13x27  — sunflower sprite
  *   trees.png         48x1280— tree sprites stacked vertically
@@ -118,6 +118,7 @@ export async function loadSpriteSheets() {
     cabin:   '/assets/sprites/ref/cabin.png',
     bed:     '/assets/sprites/ref/bed.png',
     flower:  '/assets/sprites/ref/flower.png',
+    mailbox: '/assets/sprites/ref/mailbox.png',
     trees:   '/assets/sprites/ref/trees.png',
     floor:   '/assets/sprites/ref/indoor-floors.png',
     walls:   '/assets/sprites/ref/indoor-walls.png',
@@ -327,44 +328,60 @@ function extractWorldTiles(sheets) {
   const extracted = {};
 
   // ── Outdoor tiles from outdoors.png (127x176) ──
-  // Grid analysis found:
-  //   Bright grass at (0,0), (0,16), (0,112)
-  //   Sandy path at (16,48), (32,48)
+  // 16x16 tile grid — first two rows are spring grass variants
   const od = sheets.outdoor;
   if (od) {
-    extracted.grass1 = slice(od, 0, 0, 16, 16);     // bright green
-    extracted.grass2 = slice(od, 0, 16, 16, 16);    // variant
-    extracted.grass3 = slice(od, 0, 112, 16, 16);   // darker variant
+    // Grass variants from top-left of sheet
+    extracted.grass1 = slice(od, 0, 0, 16, 16);     // bright spring grass
+    extracted.grass2 = slice(od, 16, 0, 16, 16);    // grass variant 2
+    extracted.grass3 = slice(od, 0, 16, 16, 16);    // grass variant 3
 
-    extracted.path1 = slice(od, 16, 48, 16, 16);    // solid sand
-    extracted.path2 = slice(od, 32, 48, 16, 16);    // sand variant
+    // Flower grass variants from adjacent tiles
+    extracted.grassFlower1 = slice(od, 32, 0, 16, 16);
+    extracted.grassFlower2 = slice(od, 16, 16, 16, 16);
+    extracted.grassFlower3 = slice(od, 32, 16, 16, 16);
+
+    // Sandy path tile
+    extracted.path = slice(od, 32, 48, 16, 16);
   }
 
-  // ── Cabin from cabin.png (128x133) ──
-  // Scale to 48x48 for game grid (3 tiles), nearest-neighbor for crisp pixels
+  // ── Cabin from cabin.png (128x144) ──
+  // Native resolution = 8x9 tiles at 16px/tile — no scaling needed
   const cabinImg = sheets.cabin;
   if (cabinImg) {
-    const c = makeCanvas(48, 48);
+    const c = makeCanvas(128, 144);
     const cctx = c.getContext('2d');
     cctx.imageSmoothingEnabled = false;
-    cctx.drawImage(cabinImg, 0, 0, 128, 133, 0, 0, 48, 48);
+    cctx.drawImage(cabinImg, 0, 0, cabinImg.width, cabinImg.height, 0, 0, 128, 144);
     extracted.cabin = c;
   }
 
   // ── Trees from trees.png (48x1280) ──
-  // First tree: canopy y=0-64, trunk y=64-96
+  // First tree: 48x80 (3x5 tiles)
   const treesImg = sheets.trees;
   if (treesImg) {
-    // Dense green canopy from center of tree top
+    // Dense green canopy from center of tree top (for border tiles)
     extracted.treeCanopy = slice(treesImg, 16, 16, 16, 16);
     // Raw trunk (has transparency — will composite with grass later)
     extracted.treeTrunkRaw = slice(treesImg, 16, 64, 16, 16);
+    // Full tree sprite for standalone trees (3 wide x 5 tall)
+    extracted.fullTree = slice(treesImg, 0, 0, 48, 80);
   }
 
   // ── Flower from flower.png (13x27) ──
   const flowerImg = sheets.flower;
   if (flowerImg) {
     extracted.flowerImg = flowerImg;
+  }
+
+  // ── Mailbox from mailbox.png — 1x2 tile overlay ──
+  const mailboxImg = sheets.mailbox;
+  if (mailboxImg) {
+    const mb = makeCanvas(16, 32);
+    const mctx = mb.getContext('2d');
+    mctx.imageSmoothingEnabled = false;
+    mctx.drawImage(mailboxImg, 0, 0, mailboxImg.width, mailboxImg.height, 2, 2, 12, 28);
+    extracted.mailboxSprite = mb;
   }
 
   return extracted;
@@ -400,17 +417,21 @@ function extractIndoorTiles(sheets) {
     extracted.bedFoot = slice(scaled, 8, 16, 16, 16);
   }
 
-  // ── TV from tv.png (30x45) — used as table/furniture ──
+  // ── TV from tv.png (30x45) — 2 tiles tall for proper scale ──
   const tvImg = sheets.tv;
   if (tvImg) {
-    const tile = makeCanvas(16, 16);
-    const ctx = tile.getContext('2d');
-    ctx.imageSmoothingEnabled = false;
-    // Floor background so no black shows through transparency
-    if (floorImg) ctx.drawImage(floorImg, 0, 0, 16, 16, 0, 0, 16, 16);
-    // Scale TV to fill tile width, bottom-aligned
-    ctx.drawImage(tvImg, 0, 0, 30, 45, 2, 0, 12, 16);
-    extracted.table = tile;
+    const full = makeCanvas(16, 32);
+    const fctx = full.getContext('2d');
+    fctx.imageSmoothingEnabled = false;
+    // Floor background for both halves
+    if (floorImg) {
+      fctx.drawImage(floorImg, 0, 0, 16, 16, 0, 0, 16, 16);
+      fctx.drawImage(floorImg, 0, 0, 16, 16, 0, 16, 16, 16);
+    }
+    // Scale TV to ~16x30, centered in 16x32
+    fctx.drawImage(tvImg, 0, 0, 30, 45, 0, 1, 16, 30);
+    extracted.tvTop = slice(full, 0, 0, 16, 16);
+    extracted.tvBottom = slice(full, 0, 16, 16, 16);
   }
 
   return extracted;
@@ -650,36 +671,64 @@ function createRug() {
 }
 
 function createCabinExterior() {
-  const c = makeCanvas(48, 48);
+  const c = makeCanvas(128, 144);
   const ctx = c.getContext('2d');
+  // Roof (top ~50px)
   ctx.fillStyle = '#3a7a3a';
-  ctx.fillRect(0, 0, 48, 20);
+  ctx.fillRect(0, 0, 128, 54);
   ctx.fillStyle = '#4a8a4a';
-  ctx.fillRect(2, 2, 44, 4);
-  ctx.fillRect(4, 6, 40, 3);
-  ctx.fillRect(6, 9, 36, 3);
+  ctx.fillRect(4, 4, 120, 12);
+  ctx.fillRect(10, 16, 108, 10);
+  ctx.fillRect(16, 26, 96, 10);
+  ctx.fillRect(22, 36, 84, 10);
+  // Walls
   ctx.fillStyle = '#a08060';
-  ctx.fillRect(4, 20, 40, 24);
+  ctx.fillRect(10, 54, 108, 80);
   ctx.fillStyle = '#8b6e4e';
-  ctx.fillRect(6, 22, 36, 20);
+  ctx.fillRect(16, 58, 96, 72);
+  // Left window
   ctx.fillStyle = '#88b8e8';
-  ctx.fillRect(9, 25, 8, 8);
+  ctx.fillRect(24, 68, 20, 20);
   ctx.fillStyle = '#6898c8';
-  ctx.fillRect(10, 26, 6, 6);
+  ctx.fillRect(26, 70, 16, 16);
   ctx.fillStyle = '#a08060';
-  ctx.fillRect(12, 25, 2, 8); ctx.fillRect(9, 28, 8, 2);
+  ctx.fillRect(33, 68, 2, 20); ctx.fillRect(24, 77, 20, 2);
+  // Right window
   ctx.fillStyle = '#88b8e8';
-  ctx.fillRect(31, 25, 8, 8);
+  ctx.fillRect(84, 68, 20, 20);
   ctx.fillStyle = '#6898c8';
-  ctx.fillRect(32, 26, 6, 6);
+  ctx.fillRect(86, 70, 16, 16);
   ctx.fillStyle = '#a08060';
-  ctx.fillRect(34, 25, 2, 8); ctx.fillRect(31, 28, 8, 2);
+  ctx.fillRect(93, 68, 2, 20); ctx.fillRect(84, 77, 20, 2);
+  // Door
   ctx.fillStyle = '#6a4e2e';
-  ctx.fillRect(19, 26, 10, 18);
+  ctx.fillRect(50, 76, 28, 58);
   ctx.fillStyle = '#8a6e4e';
-  ctx.fillRect(20, 27, 8, 16);
+  ctx.fillRect(52, 78, 24, 54);
   ctx.fillStyle = '#d0c090';
-  ctx.fillRect(26, 34, 2, 2);
+  ctx.fillRect(70, 100, 4, 4);
+  return c;
+}
+
+function createFullTree() {
+  const c = makeCanvas(48, 80);
+  const ctx = c.getContext('2d');
+  // Trunk (center, bottom 32px = 2 tiles)
+  ctx.fillStyle = '#6b4e30';
+  ctx.fillRect(20, 48, 8, 32);
+  ctx.fillStyle = '#5a3e20';
+  ctx.fillRect(22, 48, 1, 32); ctx.fillRect(26, 48, 1, 32);
+  // Canopy (top 48px = 3 tiles, rough circle)
+  ctx.fillStyle = '#2a7018';
+  ctx.fillRect(8, 8, 32, 40);
+  ctx.fillRect(4, 12, 40, 32);
+  ctx.fillRect(0, 16, 48, 24);
+  ctx.fillStyle = '#3a8828';
+  ctx.fillRect(12, 12, 24, 32);
+  ctx.fillRect(8, 16, 32, 24);
+  ctx.fillStyle = '#4a9838';
+  ctx.fillRect(16, 16, 16, 20);
+  ctx.fillRect(12, 20, 24, 12);
   return c;
 }
 
@@ -746,19 +795,22 @@ export function createAllSprites(sheets) {
 
   const v = isValidTile;
 
-  // ── Grass tiles ──
+  // ── Grass tiles (all from sprite sheet) ──
   const grass = [
     v(world.grass1) ? world.grass1 : createGrass(1),
     v(world.grass2) ? world.grass2 : createGrass(42),
     v(world.grass3) ? world.grass3 : createGrass(99),
   ];
 
-  // ── Path tiles ──
-  const path = [
-    v(world.path1) ? world.path1 : createPath(10),
-    v(world.path2) ? world.path2 : createPath(33),
-    createPath(77),
+  // ── Flower grass tiles (from sprite sheet) ──
+  const grassFlower = [
+    v(world.grassFlower1) ? world.grassFlower1 : createGrassFlower(7),
+    v(world.grassFlower2) ? world.grassFlower2 : createGrassFlower(55),
+    v(world.grassFlower3) ? world.grassFlower3 : createGrassFlower(123),
   ];
+
+  // ── Path tile (single type) ──
+  const pathTile = v(world.path) ? world.path : createPath(10);
 
   // ── Water (procedural animated) ──
   const water = [
@@ -775,14 +827,14 @@ export function createAllSprites(sheets) {
     tctx.drawImage(world.treeTrunkRaw, 0, 0);
   }
 
-  // ── Flower/rose tile: sunflower on grass background ──
+  // ── Flower/rose tile: full flower as 1x2 transparent overlay ──
   let roseTile = null;
   if (world.flowerImg) {
+    const fi = world.flowerImg;
     roseTile = makeCanvas(16, 32);
     const rctx = roseTile.getContext('2d');
-    rctx.drawImage(grassBg, 0, 0);
-    // Draw flower head (top portion) centered on grass
-    rctx.drawImage(world.flowerImg, 0, 0, 16, 32, 1, 0, 16, 32);
+    // Transparent background — drawn as overlay after tiles
+    rctx.drawImage(fi, 0, 0, fi.width, fi.height, 1, 2, 14, 28);
   }
 
   // ── Cabin exterior ──
@@ -792,8 +844,8 @@ export function createAllSprites(sheets) {
     char,
     tiles: {
       grass,
-      grassFlower: [createGrassFlower(7), createGrassFlower(55), createGrassFlower(123)],
-      path,
+      grassFlower,
+      path: pathTile,
       floor:    v(indoor.woodFloor)  ? indoor.woodFloor  : createFloor(),
       wall:     v(indoor.wallMid)    ? indoor.wallMid    : createWall(),
       wallTop:  v(indoor.wallTop)    ? indoor.wallTop    : createWallTop(),
@@ -804,14 +856,16 @@ export function createAllSprites(sheets) {
       treeCanopy: v(world.treeCanopy) ? world.treeCanopy : createTreeCanopy(),
       bedHead:  v(indoor.bedHead)    ? indoor.bedHead    : createBedHead(),
       bedFoot:  v(indoor.bedFoot)    ? indoor.bedFoot    : createBedFoot(),
-      mailbox:  createMailbox(),
-      table:    v(indoor.table)      ? indoor.table      : createTable(),
+      mailbox:  v(world.mailboxSprite) ? world.mailboxSprite : createMailbox(),
+      tvTop:    v(indoor.tvTop)      ? indoor.tvTop      : createTable(),
+      tvBottom: v(indoor.tvBottom)   ? indoor.tvBottom   : createTable(),
       rug:      createRug(),
       fence:    createFence(),
     },
     objects: {
       cabin,
       heart: v(heartEmote) ? heartEmote : createHeartIndicator(),
+      tree: v(world.fullTree) ? world.fullTree : createFullTree(),
     },
     sv: {
       parchment: sheets?.mail ? slice(sheets.mail, 0, 0, 320, 132) : null,

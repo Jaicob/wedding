@@ -907,7 +907,7 @@ export class StardewValentine {
     const lines = [
       'Never did I imagine that one day',
       'I would be lucky enough to have',
-      'met someone you like you.',
+      'met someone like you.',
       '',
       'A determined soul',
       'Empowering and loving',

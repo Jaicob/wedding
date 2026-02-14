@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
     .digest('hex');
 
   return {
+    base: './',
     plugins: [tailwindcss()],
     define: {
       __PASSWORD_HASH__: JSON.stringify(hash),

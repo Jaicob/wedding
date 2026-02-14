@@ -1,0 +1,119 @@
+{
+  "password": {
+    "placeholder": "Enter password",
+    "submit": "Enter",
+    "error": "Incorrect password, please try again"
+  },
+  "nav": {
+    "home": "Home",
+    "story": "Our Story",
+    "travel": "Travel",
+    "schedule": "Schedule",
+    "registry": "Registry"
+  },
+  "home": {
+    "date": "August 28, 2026",
+    "location": "Wailea, Hawaii",
+    "couple": "Dana & Jaicob",
+    "message": "We can’t wait to share this special day with you.\n Come celebrate a late-summer night with us.",
+    "rsvp": "RSVP",
+    "countdown": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    }
+  },
+  "story": {
+    "title": "Our Story",
+    "chest": "This was our story.",
+    "hint": "Explore the illustration to discover our journey",
+    "wisdom": "Love is patient, love is kind. It always protects, always trusts, always hopes, always perseveres.",
+    "placeholder": "A chapter of our story...",
+    "entries": [
+      "The day we first met — a moment that changed everything.",
+      "Our first adventure together — the start of something beautiful.",
+      "The moment we knew — when words weren't needed anymore.",
+      "Growing together — building a life side by side.",
+      "The proposal — a question and an answer that lasts forever."
+    ]
+  },
+  "travel": {
+    "title": "Travel",
+    "flightsTitle": "Recommended Flights",
+    "hotelTitle": "Main Hotel",
+    "altTitle": "Alternative Hotels",
+    "tipsTitle": "Travel Tips",
+    "navFlights": "Flights",
+    "navHotel": "Hotel",
+    "navAlt": "Alternatives",
+    "navTips": "Tips",
+    "flights": [
+      { "airline": "Korean Air", "route": "Direct flights available from major US cities", "note": "We recommend arriving by October 16" },
+      { "airline": "Asiana Airlines", "route": "Direct flights available from LAX, JFK, SFO", "note": "Book early for best rates" }
+    ],
+    "hotel": {
+      "name": "Hotel details coming soon",
+      "address": "",
+      "booking": "A room block will be available",
+      "link": "",
+      "linkText": "Book Now"
+    },
+    "altHotels": [
+      { "name": "Alternative options coming soon", "note": "We'll share more details as the date approaches" }
+    ],
+    "tips": [
+      "We recommend arriving October 16 and departing October 20 to enjoy the city.",
+      "October is beautiful in Seoul — expect mild weather and fall foliage.",
+      "A visa is not required for US citizens for stays under 90 days."
+    ]
+  },
+  "schedule": {
+    "title": "Schedule",
+    "events": [
+      { "time": "2:00 PM", "title": "Ceremony", "description": "Join us as we say our vows", "location": "Venue details coming soon" },
+      { "time": "3:00 PM", "title": "Cocktail Hour", "description": "Drinks and light bites while we take photos", "location": "" },
+      { "time": "4:30 PM", "title": "Reception", "description": "Dinner, toasts, and dancing", "location": "" },
+      { "time": "9:00 PM", "title": "After Party", "description": "Keep the celebration going", "location": "" }
+    ]
+  },
+  "registry": {
+    "title": "Registry",
+    "message": "Your presence at our wedding is the greatest gift of all. If you wish to honor us with a gift, we've created a small registry.",
+    "linkText": "View Our Registry",
+    "url": "#"
+  },
+  "storyBook": {
+    "title": "Our Story",
+    "subtitle": "The chapters that led us here",
+    "statementLine1": "A love story, written",
+    "statementLine2": "one chapter at a time.",
+    "chapters": [
+      {
+        "label": "Chapter One",
+        "title": "A Chance Encounter",
+        "text": "Some stories begin with a grand gesture, but ours started with a quiet moment — a glance across a room, an unexpected conversation, and the feeling that something had just shifted."
+      },
+      {
+        "label": "Chapter Two",
+        "title": "First Adventures",
+        "text": "What started as coffee dates turned into long weekends exploring new places together. Every trip revealed something new — not just about the world, but about each other."
+      },
+      {
+        "label": "Chapter Three",
+        "title": "Growing Together",
+        "text": "Life isn't always easy, but facing it together made all the difference. Through late nights, big moves, and quiet evenings at home, we built something that felt unshakeable."
+      },
+      {
+        "label": "Chapter Four",
+        "title": "The Question",
+        "text": "There are moments you replay in your mind forever. A heartbeat of silence before the answer, and then — everything changed, and nothing changed at all."
+      },
+      {
+        "label": "Chapter Five",
+        "title": "The Next Chapter",
+        "text": "And now we stand at the beginning of something new. With all of you beside us, we're ready to write the rest of this story — together."
+      }
+    ]
+  }
+}

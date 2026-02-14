@@ -1,0 +1,79 @@
+<div class="pt-28 min-h-screen pb-24 relative overflow-hidden">
+
+  <!-- Vertical side nav -->
+  <nav id="travel-nav" class="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 z-40
+                               flex-col items-start gap-5">
+    <a href="#travel-flights-section" class="travel-nav-link group flex items-center gap-3 cursor-pointer">
+      <span class="block w-4 h-px bg-fg/20 group-hover:w-8 group-hover:bg-accent transition-all duration-300"></span>
+      <span class="text-[11px] tracking-[0.15em] uppercase text-fg-muted group-hover:text-accent transition-colors duration-300"
+            data-nav="flights"></span>
+    </a>
+    <a href="#travel-hotel-section" class="travel-nav-link group flex items-center gap-3 cursor-pointer">
+      <span class="block w-4 h-px bg-fg/20 group-hover:w-8 group-hover:bg-accent transition-all duration-300"></span>
+      <span class="text-[11px] tracking-[0.15em] uppercase text-fg-muted group-hover:text-accent transition-colors duration-300"
+            data-nav="hotel"></span>
+    </a>
+    <a href="#travel-alt-section" class="travel-nav-link group flex items-center gap-3 cursor-pointer">
+      <span class="block w-4 h-px bg-fg/20 group-hover:w-8 group-hover:bg-accent transition-all duration-300"></span>
+      <span class="text-[11px] tracking-[0.15em] uppercase text-fg-muted group-hover:text-accent transition-colors duration-300"
+            data-nav="alt"></span>
+    </a>
+    <a href="#travel-tips-section" class="travel-nav-link group flex items-center gap-3 cursor-pointer">
+      <span class="block w-4 h-px bg-fg/20 group-hover:w-8 group-hover:bg-accent transition-all duration-300"></span>
+      <span class="text-[11px] tracking-[0.15em] uppercase text-fg-muted group-hover:text-accent transition-colors duration-300"
+            data-nav="tips"></span>
+    </a>
+  </nav>
+
+  <div class="px-6 max-w-5xl mx-auto">
+    <!-- Hero -->
+    <div class="text-center mb-20 md:mb-28">
+      <p class="travel-reveal text-xs tracking-[0.4em] uppercase text-fg-muted mb-5">Join us in</p>
+      <h2 id="travel-title" class="travel-reveal font-heading text-5xl md:text-7xl mb-6"></h2>
+      <p class="travel-reveal text-sm md:text-base text-fg-muted tracking-[0.18em] uppercase">Travel & Stay</p>
+    </div>
+
+    <!-- Flights -->
+    <section id="travel-flights-section" class="travel-section mb-16 md:mb-20 scroll-mt-24">
+      <div class="section-header mb-8">
+        <p class="text-xs tracking-[0.35em] uppercase text-fg-muted mb-3">Flights</p>
+        <h3 id="travel-flights-title" class="font-heading text-3xl md:text-4xl text-fg"></h3>
+      </div>
+      <div id="travel-flights" class="grid md:grid-cols-2 gap-10 md:gap-12"></div>
+    </section>
+
+    <!-- Main Hotel -->
+    <section id="travel-hotel-section" class="travel-section mb-16 md:mb-20 scroll-mt-24">
+      <div class="section-header mb-8">
+        <p class="text-xs tracking-[0.35em] uppercase text-fg-muted mb-3">Main Hotel</p>
+        <h3 id="travel-hotel-title" class="font-heading text-3xl md:text-4xl text-fg"></h3>
+      </div>
+      <div id="travel-hotel" class="space-y-4 md:space-y-6"></div>
+    </section>
+
+    <!-- Alternative Hotels -->
+    <section id="travel-alt-section" class="travel-section mb-16 md:mb-20 scroll-mt-24">
+      <div class="section-header mb-8">
+        <p class="text-xs tracking-[0.35em] uppercase text-fg-muted mb-3">Alternatives</p>
+        <h3 id="travel-alt-title" class="font-heading text-3xl md:text-4xl text-fg"></h3>
+      </div>
+      <div id="travel-alt-hotels" class="grid md:grid-cols-2 gap-10 md:gap-12"></div>
+    </section>
+
+    <!-- Travel Tips -->
+    <section id="travel-tips-section" class="travel-section mb-12 scroll-mt-24">
+      <div class="section-header mb-8">
+        <p class="text-xs tracking-[0.35em] uppercase text-fg-muted mb-3">Travel Notes</p>
+        <h3 id="travel-tips-title" class="font-heading text-3xl md:text-4xl text-fg"></h3>
+      </div>
+      <div id="travel-tips" class="space-y-6"></div>
+    </section>
+
+    <!-- Bottom ornament -->
+    <div class="flex items-center justify-center gap-4 mt-16 mb-4 opacity-40">
+      <span class="block w-12 h-px bg-fg/20"></span>
+      <span class="text-fg/30 text-xs">&#10038; &#10038; &#10038;</span>
+      <span class="block w-12 h-px bg-fg/20"></span>
+    </div>
+  </div>
+</div>

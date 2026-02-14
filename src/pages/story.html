@@ -1,0 +1,92 @@
+<div class="pt-24 min-h-screen px-6 max-w-4xl mx-auto pb-20">
+  <h2 id="story-title" class="font-heading text-4xl md:text-5xl text-center mb-4"></h2>
+  <p id="story-hint" class="text-center text-fg-muted text-sm tracking-wide mb-12"></p>
+
+  <!-- Interactive illustration area with hotspots -->
+  <div id="story-illustration" class="relative w-full aspect-[16/10] rounded-lg overflow-hidden mx-auto mb-12"
+       style="background: linear-gradient(135deg, #c4b8a0 0%, #d6ccb8 30%, #b8a888 60%, #c9bea8 100%);">
+
+    <!-- Placeholder scene elements — pointer-events-none so they don't block clicks -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute bottom-0 left-0 right-0 h-[40%]"
+           style="background: linear-gradient(180deg, transparent 0%, #8a7a62 100%); opacity: 0.4;"></div>
+      <div class="absolute bottom-[15%] left-[8%] w-16 h-28 rounded-t-full" style="background: #6b5b43; opacity: 0.35;"></div>
+      <div class="absolute bottom-[15%] right-[12%] w-14 h-24 rounded-t-full" style="background: #6b5b43; opacity: 0.35;"></div>
+      <div class="absolute bottom-0 left-[35%] w-[30%] h-[35%]"
+           style="background: linear-gradient(180deg, transparent 0%, #a89878 50%, #b8a888 100%); opacity: 0.3; border-radius: 50% 50% 0 0;"></div>
+      <div class="absolute top-[10%] right-[20%] w-12 h-12 rounded-full" style="background: #e8d8b8; opacity: 0.5;"></div>
+    </div>
+
+    <!-- Hotspot buttons — large, high z-index, with visible labels -->
+    <button class="story-hotspot absolute z-20 flex flex-col items-center gap-1 cursor-pointer group"
+            data-index="0" style="top: 15%; left: 10%;">
+      <div class="w-14 h-14 rounded-full bg-accent/30 border-2 border-accent flex items-center justify-center
+                  group-hover:bg-accent/50 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-accent/20">
+        <span class="w-4 h-4 rounded-full bg-accent animate-pulse"></span>
+      </div>
+      <span class="text-xs font-bold text-white bg-red-800/80 px-2 py-0.5 rounded whitespace-nowrap">1 — First Met</span>
+    </button>
+
+    <button class="story-hotspot absolute z-20 flex flex-col items-center gap-1 cursor-pointer group"
+            data-index="1" style="top: 38%; left: 40%;">
+      <div class="w-14 h-14 rounded-full bg-accent/30 border-2 border-accent flex items-center justify-center
+                  group-hover:bg-accent/50 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-accent/20">
+        <span class="w-4 h-4 rounded-full bg-accent animate-pulse"></span>
+      </div>
+      <span class="text-xs font-bold text-white bg-red-800/80 px-2 py-0.5 rounded whitespace-nowrap">2 — First Adventure</span>
+    </button>
+
+    <button class="story-hotspot absolute z-20 flex flex-col items-center gap-1 cursor-pointer group"
+            data-index="2" style="top: 20%; left: 70%;">
+      <div class="w-14 h-14 rounded-full bg-accent/30 border-2 border-accent flex items-center justify-center
+                  group-hover:bg-accent/50 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-accent/20">
+        <span class="w-4 h-4 rounded-full bg-accent animate-pulse"></span>
+      </div>
+      <span class="text-xs font-bold text-white bg-red-800/80 px-2 py-0.5 rounded whitespace-nowrap">3 — The Moment</span>
+    </button>
+
+    <button class="story-hotspot absolute z-20 flex flex-col items-center gap-1 cursor-pointer group"
+            data-index="3" style="top: 60%; left: 22%;">
+      <div class="w-14 h-14 rounded-full bg-accent/30 border-2 border-accent flex items-center justify-center
+                  group-hover:bg-accent/50 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-accent/20">
+        <span class="w-4 h-4 rounded-full bg-accent animate-pulse"></span>
+      </div>
+      <span class="text-xs font-bold text-white bg-red-800/80 px-2 py-0.5 rounded whitespace-nowrap">4 — Growing Together</span>
+    </button>
+
+    <button class="story-hotspot absolute z-20 flex flex-col items-center gap-1 cursor-pointer group"
+            data-index="4" style="top: 55%; left: 62%;">
+      <div class="w-14 h-14 rounded-full bg-accent/30 border-2 border-accent flex items-center justify-center
+                  group-hover:bg-accent/50 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-accent/20">
+        <span class="w-4 h-4 rounded-full bg-accent animate-pulse"></span>
+      </div>
+      <span class="text-xs font-bold text-white bg-red-800/80 px-2 py-0.5 rounded whitespace-nowrap">5 — The Proposal</span>
+    </button>
+
+    <!-- Progress key indicator -->
+    <div id="story-progress" class="absolute bottom-4 right-4 z-20 flex gap-1.5">
+      <span class="key-piece w-5 h-5 rounded-sm border-2 border-accent/40 transition-colors duration-300"></span>
+      <span class="key-piece w-5 h-5 rounded-sm border-2 border-accent/40 transition-colors duration-300"></span>
+      <span class="key-piece w-5 h-5 rounded-sm border-2 border-accent/40 transition-colors duration-300"></span>
+      <span class="key-piece w-5 h-5 rounded-sm border-2 border-accent/40 transition-colors duration-300"></span>
+      <span class="key-piece w-5 h-5 rounded-sm border-2 border-accent/40 transition-colors duration-300"></span>
+    </div>
+  </div>
+
+  <!-- Story text panel (revealed when hotspot is clicked) -->
+  <div id="story-panel" class="hidden max-w-2xl mx-auto text-center">
+    <p id="story-text" class="text-lg leading-relaxed text-fg-light"></p>
+    <button id="story-close" class="mt-6 text-sm text-fg-muted hover:text-fg uppercase tracking-widest cursor-pointer">
+      &times; Close
+    </button>
+  </div>
+
+  <!-- Chest (revealed when all hotspots visited) -->
+  <div id="story-chest" class="hidden text-center max-w-2xl mx-auto">
+    <div class="inline-block p-8 border border-accent/30 rounded-lg bg-bg-dark">
+      <!-- <div class="text-4xl mb-4">&#x1F512;</div> -->
+      <h3 id="chest-title" class="font-heading text-2xl text-accent mb-4"></h3>
+      <p id="chest-message" class="text-lg leading-relaxed text-fg-light italic"></p>
+    </div>
+  </div>
+</div>

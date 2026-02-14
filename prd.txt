@@ -1,0 +1,66 @@
+This project will be used as a wedding website for Dana and Jaicob. It must
+accomplish the following
+
+Pages: Add templates for the following content pages
+- Password page
+- Home
+- Our Story
+- Travel
+- Schedule
+- Registry
+
+In addition to these pages it must have the following features
+- Password protected, ideally done without external services or api calls but
+  also must not expose the password in the static files
+- Build as a statically generated website that can be hosted on s3, github
+  pages, or similar platforms.
+- Ideally use tailwind css, the latest version, with a placeholder for
+  overriding the theme (fonts, colors) fonts will use local files
+- Localization support for english (default) and korean via separate language
+  files
+- Use smooth and elegant animations/transitions for lazy loading images, text
+  scrolling into the viewport, and transitioning between pages. It should not be
+so slow that it makes using the site feel sluggish though.
+
+Below is more guidance on each page
+
+Password Page
+- Should be simple and elegant and upon entering the password provide a unique
+  transition to the Home page. Suggestion -- a logo for the couple in the
+center, an input line below for the password. Upon correct password entry the
+logo transitions upwards to the header, menu expands out and the couples names
+appear in the center of the screen, more to be shown on scroll.
+
+Home page
+- Contains the date, location, countdown timer till the event, a message from
+  the couple, and a link to RSVP  It should use a unique, artistic layout but
+not one that makes it too hard to find the info you need. It should have a
+mysterious feel to it that builds anticipation.
+
+Our Story
+- I want to keep this relativel short and sweet, but also artistic, assume there
+  will be an image or some drawings that have hotspots, hovering on these
+hotspots or individually graphics will reveal a section of our story. As each
+piece of the story is interacted with a key is formed. Upon completion this key
+opens a chest that shares some words of wisdom we will provide which we feel
+captures our love.
+
+Travel
+- This is a utilitarian page which prioritizes access to information,
+  recommended flights, the main hotel and how to book, alternative hotels in the
+area, when we recommend arriving and leaving.
+
+Schedule
+- Also simple and more utilitarian it will show important times for the day-of
+
+Resgistry
+- No integrations needed here, it will just be a message from the couple and a
+  link out to another platform.
+
+Our main colors are:
+Background:#f0ecdf
+Foreground:#342412
+Accent:#2352b8
+All other theme colors should be based on these prefer shades and variations to
+create contrast where needed instead of introducing more hues.
+

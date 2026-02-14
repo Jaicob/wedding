@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.spriters-resource.com)",
+      "Bash(ls:*)",
+      "Bash(python3:*)"
+    ]
+  }
+}

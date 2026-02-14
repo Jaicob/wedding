@@ -870,7 +870,7 @@ export function createAllSprites(sheets) {
     },
     sv: {
       parchment: sheets?.mail ? slice(sheets.mail, 0, 0, 320, 132) : null,
-      nightSky:  sheets?.mail ? slice(sheets.mail, 0, 396, 320, 198) : null,
+      // nightSky:  sheets?.mail ? slice(sheets.mail, 0, 396, 320, 198) : null,
     },
   };
 }

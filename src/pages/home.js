@@ -34,6 +34,9 @@ export const homePage = {
   guard: () => isAuthenticated(),
 
   init(container) {
+    // Fix image path for base URL
+    container.querySelector('#home-hero-img').src = `${import.meta.env.BASE_URL}images/birds-flying.png`;
+
     // Set localized text
     container.querySelector('#home-date').textContent = t('home.date');
     container.querySelector('#home-couple').textContent = t('home.couple');

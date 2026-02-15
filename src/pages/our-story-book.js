@@ -477,7 +477,7 @@ function buildChapters(container) {
         <div class="story-book-image-col">
         <div class="story-book-image-wrap" data-mask-index="${i}">
           <div class="story-book-image-inner">
-            <img src="/images/story-${i + 1}.png" alt="${ch.title}">
+            <img src="${import.meta.env.BASE_URL}images/story-${i + 1}.png" alt="${ch.title}">
           </div>
           <div class="story-book-cover" aria-hidden="true"></div>
           <div class="story-book-cover-solid" aria-hidden="true"></div>

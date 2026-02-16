@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
     .digest('hex');
 
   return {
-    base: '/wedding/',
+    base: '/',
     plugins: [tailwindcss()],
     define: {
       __PASSWORD_HASH__: JSON.stringify(hash),

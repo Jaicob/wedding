@@ -485,9 +485,9 @@ function buildChapters(container) {
         </div>
         <div class="story-book-text-col">
           <div class="story-book-text-inner">
-            <span class="story-book-label">${ch.label}</span>
-            <h2 class="story-book-heading">${ch.title}</h2>
-            <div class="story-book-body">${ch.text}</div>
+            <span class="section-label">${ch.label}</span>
+            <h2 class="section-heading">${ch.title}</h2>
+            <div class="body-text">${ch.text}</div>
           </div>
         </div>
       </article>`;

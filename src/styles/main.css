@@ -16,6 +16,14 @@
 @font-face { font-family: 'PPWriter Text'; src: url('/fonts/PPWriter-RegularText.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'PPWriter Text'; src: url('/fonts/PPWriter-BoldText.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
 
+/* PP Museum */
+@font-face { font-family: 'PPMuseum'; src: url('/fonts/PPMuseum-Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'PPMuseum'; src: url('/fonts/PPMuseum-LightItalic.otf') format('opentype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'PPMuseum'; src: url('/fonts/PPMuseum-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'PPMuseum'; src: url('/fonts/PPMuseum-RegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'PPMuseum'; src: url('/fonts/PPMuseum-Ultrabold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'PPMuseum'; src: url('/fonts/PPMuseum-UltraboldItalic.otf') format('opentype'); font-weight: 800; font-style: italic; font-display: swap; }
+
 /* Allison Font faces */
 @font-face { font-family: 'Allison'; src: url('/fonts/Allison-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
 
@@ -44,6 +52,7 @@
   /* Font families — PPWriter for everything */
   --font-heading: 'PPWriter', serif;
   --font-body: 'PPWriter Text', 'PPWriter', serif;
+  --font-sans: 'PPMuseum', sans-serif;
 }
 
 /* Base styles */
@@ -100,6 +109,13 @@ h2, h3, h4, h5, h6 {
   animation: fadeInUp 0.6s ease-out both;
 }
 
+/* Travel page — PP Museum for body text */
+.travel-page {
+  font-family: var(--font-body);
+  /* font-weight: 300; */
+  /* letter-spacing: 0.005em; */
+}
+
 /* Page transition */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -110,14 +126,10 @@ h2, h3, h4, h5, h6 {
   animation: fadeIn 0.4s ease-out both;
 }
 
-/* ===== Story Book Page ===== */
-
-.story-book-page {
-  overflow: hidden;
-}
+/* ===== Shared typography ===== */
 
 /* Hero */
-.story-book-hero {
+.page-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,13 +139,13 @@ h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-.story-book-hero-title {
+.hero-title {
   font-size: clamp(3.5rem, 10vw, 8rem);
   line-height: 1;
   margin-bottom: 1rem;
 }
 
-.story-book-hero-subtitle {
+.hero-subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--color-fg-muted);
   font-weight: 300;
@@ -142,7 +154,7 @@ h2, h3, h4, h5, h6 {
 }
 
 /* Statement section */
-.story-book-statement {
+.page-statement {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,11 +162,42 @@ h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-.story-book-statement-text {
+.statement-text {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.3;
   max-width: 900px;
+}
+
+/* Section typography */
+.section-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-fg-muted);
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.body-text {
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  line-height: 1.8;
+  color: var(--color-fg-light);
+}
+
+/* ===== Story Book Page ===== */
+
+.story-book-page {
+  overflow: hidden;
 }
 
 .statement-solid {
@@ -310,29 +353,6 @@ h2, h3, h4, h5, h6 {
   max-width: 420px;
 }
 
-.story-book-label {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--color-fg-muted);
-  opacity: 0.6;
-  margin-bottom: 0.75rem;
-}
-
-.story-book-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 300;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.story-book-body {
-  font-size: clamp(0.875rem, 1.2vw, 1rem);
-  line-height: 1.8;
-  color: var(--color-fg-light);
-}
 
 /* Alternating layout: odd chapters flip image/text sides */
 .story-book-chapter:nth-child(even) {

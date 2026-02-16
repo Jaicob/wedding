@@ -9,11 +9,14 @@ export default defineConfig(({ mode }) => {
     .update(password.trim().toLowerCase())
     .digest('hex');
 
+  const discountCode = env.DISCOUNT_CODE || '';
+
   return {
     base: '/',
     plugins: [tailwindcss()],
     define: {
       __PASSWORD_HASH__: JSON.stringify(hash),
+      __DISCOUNT_CODE__: JSON.stringify(discountCode),
     },
     build: {
       outDir: 'dist',

@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
+          DISCOUNT_CODE: ${{ secrets.DISCOUNT_CODE }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

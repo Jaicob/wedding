@@ -24,7 +24,7 @@ const cleanups = { home: destroyHome, 'our-story-book': destroyStoryBook, valent
 // Register pages
 registerPage('password', passwordPage);
 registerPage('home', homePage);
-registerPage('story', storyPage);
+registerPage('story', storyBookPage);
 registerPage('travel', travelPage);
 registerPage('schedule', schedulePage);
 registerPage('registry', registryPage);

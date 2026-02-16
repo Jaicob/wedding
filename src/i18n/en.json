@@ -40,32 +40,51 @@
   },
   "travel": {
     "title": "Travel",
-    "flightsTitle": "Recommended Flights",
-    "hotelTitle": "Main Hotel",
-    "altTitle": "Alternative Hotels",
+    "message": "We know that traveling for a destination wedding can take extra time and planning, and we completely understand if you’re not able to join us in person. We are so grateful for your love and well wishes.\n\nIf you’re able to make the trip, we’re so excited to celebrate together! Below you’ll find directions to the venue and a few places to stay.",
+    "flightsTitle": "Flights",
+    "flightsLabel": "Airport",
+    "hotelTitle": "Where to Stay",
+    "hotelLabel": "Our Venue",
+    "viewHotel": "View Hotel",
     "tipsTitle": "Travel Tips",
     "navFlights": "Flights",
-    "navHotel": "Hotel",
-    "navAlt": "Alternatives",
+    "navHotel": "Stay",
     "navTips": "Tips",
-    "flights": [
-      { "airline": "Korean Air", "route": "Direct flights available from major US cities", "note": "We recommend arriving by October 16" },
-      { "airline": "Asiana Airlines", "route": "Direct flights available from LAX, JFK, SFO", "note": "Book early for best rates" }
+    "altLabel": "Alternative Options",
+    "flightsAirport": "Kahului Airport (OGG)",
+    "flightsBody": "Kahului Airport (OGG) is the main airport on Maui. Wailea is about a 25–30 minute drive from the airport.",
+    "flightsLayover": "There are no direct flights to Maui from most cities — you'll likely connect through Honolulu (HNL) before a short 35-minute hop to Kahului.",
+    "gettingAroundTitle": "Getting Around the Island",
+    "navGettingAround": "Getting Around",
+    "gettingAround": [
+      {
+        "icon": "car",
+        "heading": "Rental Car",
+        "body": "If you're planning to explore the island before or after the wedding, we recommend renting a car so you can fully enjoy Maui's beaches, scenic drives, and hidden gems."
+      },
+      {
+        "icon": "rideshare",
+        "heading": "Rideshare",
+        "body": "If you'd rather keep things simple, Uber and Lyft are available and can take you directly to the venue and around Wailea."
+      }
     ],
     "hotel": {
-      "name": "Hotel details coming soon",
-      "address": "",
-      "booking": "A room block will be available",
-      "link": "",
-      "linkText": "Book Now"
+      "name": "Hotel Wailea",
+      "description": "We're getting married at Hotel Wailea, and we've got special discounted rates just for our guests. Book through the Hotel Wailea website and enter the promo code below when booking!",
+      "note": "We'd love for everyone to stay close by and make a weekend of it, so we recommend booking early before rooms fill up.",
+      "promoLabel": "Discount Code",
+      "link": "https://www.hotelwailea.com",
+      "linkText": "View Hotel"
     },
+    "altHotelsNote": "If you're looking for other options, there are lots of great places to stay nearby in Wailea too — whatever works best for you!",
     "altHotels": [
-      { "name": "Alternative options coming soon", "note": "We'll share more details as the date approaches" }
+      { "name": "Residence Inn By Marriott Maui Wailea", "link": "https://www.marriott.com/en-us/hotels/hnmri-residence-inn-maui-wailea/overview/" },
+      { "name": "Wailea Beach Resort — Marriott, Maui", "link": "https://www.marriott.com/en-us/hotels/hnmmc-wailea-beach-resort-marriott-maui/overview/" }
     ],
     "tips": [
-      "We recommend arriving October 16 and departing October 20 to enjoy the city.",
-      "October is beautiful in Seoul — expect mild weather and fall foliage.",
-      "A visa is not required for US citizens for stays under 90 days."
+      "Late August in Maui is warm and sunny — expect temperatures around 85°F (29°C) with low humidity.",
+      "Don't forget reef-safe sunscreen! Hawaii law requires it to protect the coral reefs.",
+      "If you're extending your trip, the Road to Hana, Haleakalā sunrise, and snorkeling at Molokini are must-dos."
     ]
   },
   "schedule": {

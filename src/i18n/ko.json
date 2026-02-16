@@ -40,32 +40,50 @@
   },
   "travel": {
     "title": "여행 정보",
-    "flightsTitle": "추천 항공편",
-    "hotelTitle": "메인 호텔",
-    "altTitle": "대안 호텔",
+    "flightsTitle": "항공편",
+    "flightsLabel": "공항",
+    "hotelTitle": "숙소 안내",
+    "hotelLabel": "결혼식 장소",
+    "viewHotel": "호텔 보기",
     "tipsTitle": "여행 팁",
     "navFlights": "항공편",
-    "navHotel": "호텔",
-    "navAlt": "대안 숙소",
+    "navHotel": "숙소",
     "navTips": "팁",
-    "flights": [
-      { "airline": "대한항공", "route": "미국 주요 도시에서 직항 운항", "note": "10월 16일까지 도착을 권장합니다" },
-      { "airline": "아시아나항공", "route": "LAX, JFK, SFO에서 직항 운항", "note": "일찍 예약하시면 더 좋은 요금을 받으실 수 있습니다" }
+    "altLabel": "다른 숙소 옵션",
+    "flightsAirport": "카훌루이 공항 (OGG)",
+    "flightsBody": "카훌루이 공항(OGG)은 마우이의 주요 공항입니다. 와일레아까지 공항에서 약 25~30분 거리입니다.",
+    "flightsLayover": "대부분의 도시에서 마우이로 가는 직항편은 없습니다 — 호놀룰루(HNL)를 경유한 후 카훌루이까지 약 35분 비행입니다.",
+    "gettingAroundTitle": "섬에서의 이동",
+    "navGettingAround": "이동 수단",
+    "gettingAround": [
+      {
+        "icon": "car",
+        "heading": "렌터카",
+        "body": "결혼식 전후로 섬을 탐험할 계획이시라면 렌터카를 추천합니다. 마우이의 해변, 경치 좋은 드라이브, 숨겨진 명소를 마음껏 즐기실 수 있습니다."
+      },
+      {
+        "icon": "rideshare",
+        "heading": "우버 / 리프트",
+        "body": "간편하게 이동하고 싶으시다면 우버와 리프트를 이용하실 수 있으며, 행사장과 와일레아 주변까지 바로 이동 가능합니다."
+      }
     ],
     "hotel": {
-      "name": "호텔 정보 준비 중",
-      "address": "",
-      "booking": "단체 예약이 가능합니다",
-      "link": "",
-      "linkText": "예약하기"
+      "name": "호텔 와일레아",
+      "description": "저희는 호텔 와일레아에서 결혼식을 올리며, 하객분들을 위한 특별 할인 요금을 준비했습니다. 호텔 와일레아 웹사이트에서 예약하실 때 아래 프로모 코드를 입력해 주세요!",
+      "note": "가까이에서 함께 주말을 보내시면 좋겠습니다. 객실이 빨리 찰 수 있으니 일찍 예약하시는 것을 추천합니다.",
+      "promoLabel": "할인 코드",
+      "link": "https://www.hotelwailea.com",
+      "linkText": "호텔 보기"
     },
+    "altHotelsNote": "다른 숙소를 찾고 계시다면 와일레아 주변에 좋은 곳이 많이 있습니다 — 편하신 곳으로 선택하세요!",
     "altHotels": [
-      { "name": "대안 숙소 정보 준비 중", "note": "날짜가 가까워지면 더 자세한 정보를 공유하겠습니다" }
+      { "name": "레지던스 인 바이 메리어트 마우이 와일레아", "link": "https://www.marriott.com/en-us/hotels/oggri-residence-inn-maui-wailea/overview/" },
+      { "name": "와일레아 비치 리조트 — 메리어트, 마우이", "link": "https://www.marriott.com/en-us/hotels/oggwi-wailea-beach-resort-marriott-maui/overview/" }
     ],
     "tips": [
-      "10월 16일 도착, 10월 20일 출발을 권장합니다.",
-      "10월의 서울은 아름답습니다 — 선선한 날씨와 단풍을 기대하세요.",
-      "미국 시민은 90일 이하 체류 시 비자가 필요하지 않습니다."
+      "8월 말 마우이는 따뜻하고 화창합니다 — 약 29°C(85°F)의 기온과 낮은 습도를 기대하세요.",
+      "산호초 보호를 위해 하와이에서는 리프 세이프 선크림이 필수입니다!",
+      "여행을 연장하신다면 하나로 가는 길, 할레아칼라 일출, 몰로키니 스노클링을 꼭 추천합니다."
     ]
   },
   "schedule": {

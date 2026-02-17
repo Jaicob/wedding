@@ -111,27 +111,32 @@
       {
         "label": "Chapter One",
         "title": "A Chance Encounter",
-        "text": "Some stories begin with a grand gesture, but ours started with a quiet moment — a glance across a room, an unexpected conversation, and the feeling that something had just shifted."
+        "text": "Some stories begin with a grand gesture, but ours started with a quiet moment — a glance across a room, an unexpected conversation, and the feeling that something had just shifted.",
+        "back": "We never expected that one conversation to change everything. But looking back, it was the moment our story truly began."
       },
       {
         "label": "Chapter Two",
         "title": "First Adventures",
-        "text": "What started as coffee dates turned into long weekends exploring new places together. Every trip revealed something new — not just about the world, but about each other."
+        "text": "What started as coffee dates turned into long weekends exploring new places together. Every trip revealed something new — not just about the world, but about each other.",
+        "back": "Every new place we explored together felt like discovering a piece of home we didn't know we were missing."
       },
       {
         "label": "Chapter Three",
         "title": "Growing Together",
-        "text": "Life isn't always easy, but facing it together made all the difference. Through late nights, big moves, and quiet evenings at home, we built something that felt unshakeable."
+        "text": "Life isn't always easy, but facing it together made all the difference. Through late nights, big moves, and quiet evenings at home, we built something that felt unshakeable.",
+        "back": "The quiet moments — the ones no one else sees — those are the ones that made us who we are together."
       },
       {
         "label": "Chapter Four",
         "title": "The Question",
-        "text": "There are moments you replay in your mind forever. A heartbeat of silence before the answer, and then — everything changed, and nothing changed at all."
+        "text": "There are moments you replay in your mind forever. A heartbeat of silence before the answer, and then — everything changed, and nothing changed at all.",
+        "back": "In that single heartbeat of silence, a lifetime of love was already written. The answer was always yes."
       },
       {
         "label": "Chapter Five",
         "title": "The Next Chapter",
-        "text": "And now we stand at the beginning of something new. With all of you beside us, we're ready to write the rest of this story — together."
+        "text": "And now we stand at the beginning of something new. With all of you beside us, we're ready to write the rest of this story — together.",
+        "back": "The best chapters are still unwritten. And we wouldn't want to write them with anyone else."
       }
     ]
   }

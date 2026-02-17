@@ -408,9 +408,10 @@ h2, h3, h4, h5, h6 {
 /* Polaroid frame */
 .story-polaroid-frame {
   position: relative;
+  background-color: var(--color-bg);
   max-width: 290px;
   will-change: transform, opacity;
-  /* background-color: var(--color-bg); */
+  cursor: pointer;
 }
 
 .story-polaroid-frame img {
@@ -450,4 +451,60 @@ h2, h3, h4, h5, h6 {
 
 .story-polaroid-text-inner {
   max-width: 420px;
+}
+
+/* ===== Polaroid Modal Overlay ===== */
+
+.story-polaroid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: visible;
+}
+
+.story-polaroid-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 236, 223, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.story-polaroid-modal-perspective {
+  perspective: 1200px;
+  overflow: visible;
+}
+
+.story-polaroid-modal-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  overflow: visible;
+}
+
+.story-polaroid-modal-front,
+.story-polaroid-modal-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
+
+.story-polaroid-modal-front img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.story-polaroid-modal-back {
+  transform: rotateY(180deg);
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
 }

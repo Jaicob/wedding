@@ -10,6 +10,7 @@ import { travelPage } from './pages/travel.js';
 import { schedulePage } from './pages/schedule.js';
 import { registryPage } from './pages/registry.js';
 import { storyBookPage, destroyStoryBook } from './pages/our-story-book.js';
+import { storyPolaroidPage, destroyStoryPolaroid } from './pages/story-polaroid.js';
 import { valentinePage, destroyValentine } from './pages/valentine.js';
 import { startEffect, stopEffect } from './effects/index.js';
 
@@ -19,16 +20,17 @@ const headerContainer = document.getElementById('header-container');
 setContainer(app);
 
 // Track cleanup functions per page
-const cleanups = { home: destroyHome, 'our-story-book': destroyStoryBook, valentine: destroyValentine };
+const cleanups = { home: destroyHome, 'our-story-book': destroyStoryBook, 'story-polaroid': destroyStoryPolaroid, valentine: destroyValentine };
 
 // Register pages
 registerPage('password', passwordPage);
 registerPage('home', homePage);
-registerPage('story', storyBookPage);
+registerPage('story', storyPolaroidPage);
 registerPage('travel', travelPage);
 registerPage('schedule', schedulePage);
 registerPage('registry', registryPage);
 registerPage('our-story-book', storyBookPage);
+registerPage('story-polaroid', storyPolaroidPage);
 registerPage('valentine', valentinePage);
 
 // Show/hide header based on page

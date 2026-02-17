@@ -38,14 +38,14 @@
 @theme {
   /* Base palette */
   --color-bg: #f0ecdf;
-  --color-fg: #342412;
+  --color-fg: #291C0E;
   --color-accent: #2352b8;
 
   /* Lighter / darker variations */
   --color-bg-light: #f7f5ed;
   --color-bg-dark: #e4dece;
-  --color-fg-light: #5a432e;
-  --color-fg-muted: #7a6651;
+  --color-fg-light: #291C0E;
+  --color-fg-muted: #655A4D;
   --color-accent-light: #3a6ad4;
   --color-accent-dark: #1a3e8a;
 
@@ -361,4 +361,93 @@ h2, h3, h4, h5, h6 {
 
 .story-book-chapter:nth-child(even) > * {
   direction: ltr;
+}
+
+/* ===== Story Polaroid Page ===== */
+
+.story-polaroid-page {
+  overflow: hidden;
+}
+
+/* Chapter layout — image left, text right */
+.story-polaroid-chapter {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 70vh;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .story-polaroid-chapter {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Image column */
+.story-polaroid-image-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .story-polaroid-image-col {
+    justify-content: center;
+    padding: 3rem 4rem 3rem 2rem;
+  }
+}
+
+/* Parallax wrapper */
+.story-polaroid-parallax {
+  position: relative;
+  z-index: 1;
+}
+
+/* Polaroid frame */
+.story-polaroid-frame {
+  position: relative;
+  max-width: 290px;
+  will-change: transform, opacity;
+  /* background-color: var(--color-bg); */
+}
+
+.story-polaroid-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Interstitial images between chapters */
+.story-polaroid-interstitial {
+  display: flex;
+  justify-content: center;
+  margin-top: -4rem;
+  margin-bottom: -4rem;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .story-polaroid-interstitial {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+/* Text column */
+.story-polaroid-text-col {
+  display: flex;
+  align-items: center;
+  padding: 3rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .story-polaroid-text-col {
+    padding: 4rem clamp(2rem, 5vw, 5rem);
+  }
+}
+
+.story-polaroid-text-inner {
+  max-width: 420px;
 }

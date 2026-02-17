@@ -53,7 +53,7 @@
     "altLabel": "Alternative Options",
     "flightsAirport": "Kahului Airport (OGG)",
     "flightsBody": "Kahului Airport (OGG) is the main airport on Maui. Wailea is about a 25–30 minute drive from the airport.",
-    "flightsLayover": "There are no direct flights to Maui from most cities — you'll likely connect through Honolulu (HNL) before a short 35-minute hop to Kahului.",
+    "flightsLayover": "There are not many direct flights to Maui from most cities — you'll likely connect through Honolulu (HNL) before a short 45-minute hop to Kahului.",
     "gettingAroundTitle": "Getting Around the Island",
     "navGettingAround": "Getting Around",
     "gettingAround": [
@@ -70,7 +70,7 @@
     ],
     "hotel": {
       "name": "Hotel Wailea",
-      "description": "We're getting married at Hotel Wailea, and we've got special discounted rates just for our guests. Book through the Hotel Wailea website and enter the promo code below when booking!",
+      "description": "We're getting married at Hotel Wailea, and have special discounted rates for our guests. Book through the Hotel Wailea website and enter the promo code below. The discount code is valid between August 25 - September 2, 2026.",
       "note": "We'd love for everyone to stay close by and make a weekend of it, so we recommend booking early before rooms fill up.",
       "promoLabel": "Discount Code",
       "link": "https://www.hotelwailea.com",
@@ -82,7 +82,7 @@
       { "name": "Wailea Beach Resort — Marriott, Maui", "link": "https://www.marriott.com/en-us/hotels/hnmmc-wailea-beach-resort-marriott-maui/overview/" }
     ],
     "tips": [
-      "Late August in Maui is warm and sunny — expect temperatures around 85°F (29°C) with low humidity.",
+      "Late August in Maui is warm and sunny — expect temperatures around 85°F (29°C).",
       "Don't forget reef-safe sunscreen! Hawaii law requires it to protect the coral reefs.",
       "If you're extending your trip, the Road to Hana, Haleakalā sunrise, and snorkeling at Molokini are must-dos."
     ]

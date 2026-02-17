@@ -6,8 +6,8 @@ const navLinks = [
   { page: 'home', key: 'nav.home' },
   { page: 'story', key: 'nav.story' },
   { page: 'travel', key: 'nav.travel' },
-  { page: 'schedule', key: 'nav.schedule' },
-  { page: 'registry', key: 'nav.registry' },
+  // { page: 'schedule', key: 'nav.schedule' },
+  // { page: 'registry', key: 'nav.registry' },
 ];
 
 export function renderHeader() {
@@ -26,7 +26,7 @@ export function renderHeader() {
           ${navLinks.map(l => `
             <a href="#/${l.page}"
                class="nav-link text-sm tracking-widest uppercase transition-colors duration-200
-                      ${current === l.page ? 'text-accent border-b border-accent' : 'text-fg-muted hover:text-fg'}"
+                      ${current === l.page ? 'text-fg border-b border-fg' : 'text-fg-muted hover:text-fg'}"
                data-page="${l.page}">
               ${t(l.key)}
             </a>
@@ -51,7 +51,7 @@ export function renderHeader() {
           ${navLinks.map(l => `
             <a href="#/${l.page}"
                class="text-sm tracking-widest uppercase transition-colors duration-200
-                      ${current === l.page ? 'text-accent' : 'text-fg-muted hover:text-fg'}"
+                      ${current === l.page ? 'text-fg' : 'text-fg-muted hover:text-fg'}"
                data-page="${l.page}">
               ${t(l.key)}
             </a>

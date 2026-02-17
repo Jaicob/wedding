@@ -54,10 +54,14 @@
     </a>
   </nav>
 
-  <div class="px-6 max-w-5xl mx-auto mt-10">
+  <div class="px-6 max-w-4xl mx-auto mt-10">
     <!-- Hero -->
-    <div class="mt-10 mb-10 max-w-2xl mx-auto text-center">
-      <img src="images/maui-circle.png" alt="Maui coastline" class="travel-reveal mx-auto mb-8 w-48 md:w-70">
+    <div class="mt-10 mb-16 md:mb-24 text-center">
+      <img
+        src="images/maui-circle.png"
+        alt="Maui coastline"
+        class="travel-reveal mx-auto mb-8 w-48 md:w-70"
+      />
       <h1
         class="travel-reveal hero-title text-center"
         data-i18n="travel.title"
@@ -65,202 +69,354 @@
     </div>
 
     <!-- Introduction -->
-    <section id="travel-intro-section" class="travel-section mb-20 scroll-mt-24">
-      <p class="text-fg-light text-pretty whitespace-pre-line leading-[1.75] mx-auto max-w-2xl" data-i18n="travel.message"></p>
+    <section
+      id="travel-intro-section"
+      class="travel-section mb-20 md:mb-28 scroll-mt-24"
+    >
+      <p
+        class="text-fg-light text-pretty whitespace-pre-line leading-[1.75] mx-auto max-w-2xl"
+        data-i18n="travel.message"
+      ></p>
     </section>
 
     <!-- Flights -->
     <section
       id="travel-flights-section"
-      class="travel-section mb-20 md:mb-28 scroll-mt-24"
+      class="travel-section mb-20 md:mb-28 scroll-mt-24 border-t border-fg/15 pt-8"
     >
-      <h3
-        class="font-heading text-2xl md:text-3xl text-fg font-light leading-[1.15] mb-10"
-        data-i18n="travel.flightsTitle"
-      ></h3>
-      <div class="travel-card p-8 md:p-10 rounded-lg border border-fg/15" style="background:#e8e2d2">
-        <p class="flex items-center gap-2 text-accent text-[0.6875rem] tracking-[0.2em] uppercase mb-4">
-          <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.4-.1.9.3 1.1L11 12l-2 3H6l-1 1 3 2 2 3 1-1v-3l3-2 3.7 7.3c.2.4.7.5 1.1.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
-          </svg>
-          <span data-i18n="travel.flightsLabel"></span>
-        </p>
-        <p class="text-xl md:text-2xl font-normal text-fg mb-3" data-i18n="travel.flightsAirport"></p>
-        <p class="text-fg-light leading-[1.75] mb-4" data-i18n="travel.flightsBody"></p>
-        <p class="flex items-start gap-2.5 leading-[1.75] pt-4 border-t border-fg/10">
-          <svg class="flex-shrink-0 mt-0.5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <span data-i18n="travel.flightsLayover"></span>
-        </p>
+      <div class="grid md:grid-cols-[10rem_1fr] gap-x-12 gap-y-4">
+        <p
+          class="text-[0.6875rem] tracking-[0.2em] uppercase text-fg-muted pt-0.5"
+          data-i18n="travel.flightsTitle"
+        ></p>
+        <div>
+          <p
+            class="font-heading text-xl md:text-2xl text-fg mb-3 flex items-center gap-3"
+          >
+            <svg
+              class="text-accent flex-shrink-0"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.4-.1.9.3 1.1L11 12l-2 3H6l-1 1 3 2 2 3 1-1v-3l3-2 3.7 7.3c.2.4.7.5 1.1.3l.5-.3c.4-.2.6-.6.5-1.1z"
+              />
+            </svg>
+            <span data-i18n="travel.flightsAirport"></span>
+          </p>
+          <p
+            class="text-fg-light leading-[1.75] mb-6"
+            data-i18n="travel.flightsBody"
+          ></p>
+          <div
+            class="flex items-start gap-2.5 text-fg-muted leading-[1.75] text-sm border-t border-fg/8 pt-5"
+          >
+            <svg
+              class="flex-shrink-0 mt-0.5"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <p data-i18n="travel.flightsLayover"></p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Getting Around the Island -->
+    <!-- Getting Around -->
     <section
       id="travel-getting-around-section"
-      class="travel-section mb-20 md:mb-28 scroll-mt-24"
+      class="travel-section mb-20 md:mb-28 scroll-mt-24 border-t border-fg/15 pt-8"
     >
-      <h3
-        class="font-heading text-2xl md:text-3xl text-fg font-light leading-[1.15] mb-10"
-        data-i18n="travel.gettingAroundTitle"
-      ></h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Rental Car -->
-        <div class="travel-card p-8 rounded-lg border border-fg/15" style="background:#e8e2d2">
-          <div class="w-10 h-10 rounded-full border border-fg/20 flex items-center justify-center text-accent mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17h10M5 13l2-6h10l2 6M5 13h14v4H5zM7.5 17a1.5 1.5 0 1 1 0-.01M16.5 17a1.5 1.5 0 1 1 0-.01"/>
-            </svg>
+      <div class="grid md:grid-cols-[10rem_1fr] gap-x-12 gap-y-4">
+        <p
+          class="text-[0.6875rem] tracking-[0.2em] uppercase text-fg-muted pt-0.5"
+          data-i18n="travel.gettingAroundTitle"
+        ></p>
+        <div>
+          <div class="travel-card pb-7 border-b border-fg/8 mb-7">
+            <p
+              class="font-heading text-lg text-fg mb-2 flex items-center gap-2.5"
+            >
+              <svg
+                class="text-accent flex-shrink-0"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M7 17h10M5 13l2-6h10l2 6M5 13h14v4H5zM7.5 17a1.5 1.5 0 1 1 0-.01M16.5 17a1.5 1.5 0 1 1 0-.01"
+                />
+              </svg>
+              <span data-i18n="travel.gettingAround.0.heading"></span>
+            </p>
+            <p
+              class="text-fg-light leading-[1.75]"
+              data-i18n="travel.gettingAround.0.body"
+            ></p>
           </div>
-          <p class="text-lg font-normal text-fg mb-2" data-i18n="travel.gettingAround.0.heading"></p>
-          <p class="text-fg-light leading-[1.75]" data-i18n="travel.gettingAround.0.body"></p>
-        </div>
-        <!-- Rideshare -->
-        <div class="travel-card p-8 rounded-lg border border-fg/15" style="background:#e8e2d2">
-          <div class="w-10 h-10 rounded-full border border-fg/20 flex items-center justify-center text-accent mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
-            </svg>
+          <div class="travel-card">
+            <p
+              class="font-heading text-lg text-fg mb-2 flex items-center gap-2.5"
+            >
+              <svg
+                class="text-accent flex-shrink-0"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              <span data-i18n="travel.gettingAround.1.heading"></span>
+            </p>
+            <p
+              class="text-fg-light leading-[1.75]"
+              data-i18n="travel.gettingAround.1.body"
+            ></p>
           </div>
-          <p class="text-lg font-normal text-fg mb-2" data-i18n="travel.gettingAround.1.heading"></p>
-          <p class="text-fg-light leading-[1.75]" data-i18n="travel.gettingAround.1.body"></p>
         </div>
       </div>
     </section>
-
-    <!-- Section divider -->
-    <div class="flex items-center justify-center gap-3 mb-16 md:mb-20">
-      <span class="block w-16 h-px bg-fg/10"></span>
-      <span class="text-fg/15 text-[10px]">&#10038;</span>
-      <span class="block w-16 h-px bg-fg/10"></span>
-    </div>
 
     <!-- Where to Stay -->
     <section
       id="travel-hotel-section"
-      class="travel-section mb-20 md:mb-28 scroll-mt-24"
+      class="travel-section mb-20 md:mb-28 scroll-mt-24 border-t border-fg/15 pt-8"
     >
-      <h3
-        class="font-heading text-2xl md:text-3xl text-fg font-light leading-[1.15] mb-10"
-        data-i18n="travel.hotelTitle"
-      ></h3>
+      <div class="grid md:grid-cols-[10rem_1fr] gap-x-12 gap-y-4">
+        <p
+          class="text-[0.6875rem] tracking-[0.2em] uppercase text-fg-muted pt-0.5"
+          data-i18n="travel.hotelTitle"
+        ></p>
+        <div>
+          <!-- Featured hotel -->
+          <div class="travel-card mb-8">
+            <p
+              class="font-heading text-xl md:text-2xl text-fg mb-3 flex items-center gap-3"
+            >
 
-      <!-- Featured hotel -->
-      <div class="travel-card p-8 md:p-10 rounded-lg border border-fg/10 relative overflow-hidden mb-10" style="background:#e8e2d2">
-        <div class="absolute top-0 left-0 w-full h-px"></div>
-        <p class="flex items-center gap-2 text-accent text-[0.6875rem] tracking-[0.2em] uppercase mb-4">
-          <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21V7l9-4 9 4v14"/><path d="M9 21V11h6v10"/><path d="M3 11h18"/>
-          </svg>
-          <span data-i18n="travel.hotelLabel"></span>
-        </p>
-        <p class="font-heading text-2xl md:text-3xl text-fg mb-5" data-i18n="travel.hotel.name"></p>
-        <p class="text-fg-light leading-[1.75] mb-3" data-i18n="travel.hotel.description"></p>
-        <p class="leading-[1.75] mb-6" data-i18n="travel.hotel.note"></p>
+                <svg
+                  class="text-accent flex-shrink-0"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 21V7l9-4 9 4v14" />
+                  <path d="M9 21V11h6v10" />
+                  <path d="M3 11h18" />
+                </svg>
+                <!-- <span data-i18n="travel.hotelLabel"></span> -->
+                <span
+                  data-i18n="travel.hotel.name"
+                ></span>
+            </p>
 
-        <!-- Discount code (shown/hidden by JS) -->
-        <p id="travel-discount" class="hidden flex-wrap items-center gap-3 mb-6 py-3 px-4 border border-dashed border-accent/30 rounded-lg" style="background:rgba(35,82,184,0.06)">
-          <svg class="text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/>
-          </svg>
-          <span class="text-xs tracking-[0.2em] uppercase" data-i18n="travel.hotel.promoLabel"></span>
-          <span id="travel-discount-code" class="font-heading text-lg tracking-[0.15em] text-accent select-all"></span>
-        </p>
+            <p
+              class="text-fg-light leading-[1.75] mb-3"
+              data-i18n="travel.hotel.description"
+            ></p>
+            <p
+              class="text-fg-muted leading-[1.75] text-sm mb-8"
+              data-i18n="travel.hotel.note"
+            ></p>
 
-        <a id="travel-hotel-link" href="#" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-6 py-2.5 text-[0.75rem] tracking-[0.2em] uppercase border border-accent text-accent
-                 hover:bg-accent hover:text-bg transition-all duration-300 rounded">
-          <span data-i18n="travel.viewHotel"></span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
-          </svg>
-        </a>
-      </div>
+            <!-- Discount code (shown/hidden by JS) -->
+            <div
+              id="travel-discount"
+              class="hidden items-center gap-3 mb-8 py-3 border-y border-dashed border-fg/15"
+            >
+              <span
+                class="text-[0.6875rem] uppercase text-fg-muted"
+                data-i18n="travel.hotel.promoLabel"
+              ></span>
+              <span
+                id="travel-discount-code"
+                class="text-lg tracking-[0.15em] text-accent select-all"
+              ></span>
+            </div>
 
-      <!-- Alternative hotels -->
-      <div class="text-[0.6875rem] tracking-[0.2em] uppercase mb-3" data-i18n="travel.altLabel"></div>
-      <div class="text-fg-light leading-[1.75] mb-5" data-i18n="travel.altHotelsNote"></div>
-      <div class="grid md:grid-cols-2 gap-4">
-        <a id="travel-alt-hotel-0" href="#" target="_blank" rel="noopener noreferrer"
-          class="travel-card block p-6 rounded-lg border border-fg/15 hover:border-accent/30 transition-all duration-300" style="background:#e8e2d2">
-          <span class="text-accent block mb-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 6h2M13 6h2M9 10h2M13 10h2M9 14h2M13 14h2M9 18h6"/>
-            </svg>
-          </span>
-          <span class="text-base font-normal text-fg block mb-3" data-i18n="travel.altHotels.0.name"></span>
-          <span class="inline-flex items-center gap-1 text-accent text-xs tracking-[0.15em] uppercase">
-            <span data-i18n="travel.viewHotel"></span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
-            </svg>
-          </span>
-        </a>
-        <a id="travel-alt-hotel-1" href="#" target="_blank" rel="noopener noreferrer"
-          class="travel-card block p-6 rounded-lg border border-fg/15 hover:border-accent/30 transition-all duration-300" style="background:#e8e2d2">
-          <span class="text-accent block mb-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 6h2M13 6h2M9 10h2M13 10h2M9 14h2M13 14h2M9 18h6"/>
-            </svg>
-          </span>
-          <span class="text-base font-normal text-fg block mb-3" data-i18n="travel.altHotels.1.name"></span>
-          <span class="inline-flex items-center gap-1 text-accent text-xs tracking-[0.15em] uppercase">
-            <span data-i18n="travel.viewHotel"></span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
-            </svg>
-          </span>
-        </a>
+            <a
+              id="travel-hotel-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-accent text-[0.75rem] uppercase border-b border-accent/40 pb-1 hover:border-accent transition-all duration-300"
+            >
+              <span data-i18n="travel.viewHotel"></span>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17L17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Alternative hotels -->
+          <div class="mt-12 pt-8 border-t border-fg/15">
+            <p
+              class="text-[0.6875rem] tracking-[0.2em] uppercase text-fg-muted mb-2"
+              data-i18n="travel.altLabel"
+            ></p>
+            <p
+              class="text-fg-muted text-sm mb-6"
+              data-i18n="travel.altHotelsNote"
+            ></p>
+            <a
+              id="travel-alt-hotel-0"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="travel-card group inline-flex items-center gap-2 py-3 text-fg hover:text-accent transition-colors duration-300"
+            >
+              <svg class="flex-shrink-0 text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <span data-i18n="travel.altHotels.0.name"></span>
+            </a>
+            <br>
+            <a
+              id="travel-alt-hotel-1"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="travel-card group inline-flex items-center gap-2 py-3 text-fg hover:text-accent transition-colors duration-300"
+            >
+              <svg class="flex-shrink-0 text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <span data-i18n="travel.altHotels.1.name"></span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Section divider -->
-    <div class="flex items-center justify-center gap-3 mb-16 md:mb-20">
-      <span class="block w-16 h-px bg-fg/10"></span>
-      <span class="text-fg/15 text-[10px]">&#10038;</span>
-      <span class="block w-16 h-px bg-fg/10"></span>
-    </div>
-
     <!-- Travel Tips -->
-    <section id="travel-tips-section" class="travel-section mb-12 scroll-mt-24">
-      <h3
-        class="font-heading text-2xl md:text-3xl text-fg font-light leading-[1.15] mb-8"
-        data-i18n="travel.tipsTitle"
-      ></h3>
-      <div class="space-y-4">
-        <div class="travel-card flex items-start gap-3 py-4 border-b border-fg/10">
-          <span class="flex-shrink-0 text-accent mt-0.5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    <section
+      id="travel-tips-section"
+      class="travel-section mb-12 scroll-mt-24 border-t border-fg/15 pt-8"
+    >
+      <div class="grid md:grid-cols-[10rem_1fr] gap-x-12 gap-y-4">
+        <p
+          class="text-[0.6875rem] tracking-[0.2em] uppercase text-fg-muted pt-0.5"
+          data-i18n="travel.tipsTitle"
+        ></p>
+        <div>
+          <div
+            class="travel-card flex items-start gap-3 py-5 border-b border-fg/8"
+          >
+            <svg
+              class="text-accent flex-shrink-0 mt-0.5"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
             </svg>
-          </span>
-          <p class="text-fg-light leading-[1.75]" data-i18n="travel.tips.0"></p>
-        </div>
-        <div class="travel-card flex items-start gap-3 py-4 border-b border-fg/10">
-          <span class="flex-shrink-0 text-accent mt-0.5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+            <p
+              class="text-fg-light leading-[1.75]"
+              data-i18n="travel.tips.0"
+            ></p>
+          </div>
+          <div
+            class="travel-card flex items-start gap-3 py-5 border-b border-fg/8"
+          >
+            <svg
+              class="text-accent flex-shrink-0 mt-0.5"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
             </svg>
-          </span>
-          <p class="text-fg-light leading-[1.75]" data-i18n="travel.tips.1"></p>
-        </div>
-        <div class="travel-card flex items-start gap-3 py-4">
-          <span class="flex-shrink-0 text-accent mt-0.5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            <p
+              class="text-fg-light leading-[1.75]"
+              data-i18n="travel.tips.1"
+            ></p>
+          </div>
+          <div class="travel-card flex items-start gap-3 py-5">
+            <svg
+              class="text-accent flex-shrink-0 mt-0.5"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polygon
+                points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
+              />
             </svg>
-          </span>
-          <p class="text-fg-light leading-[1.75]" data-i18n="travel.tips.2"></p>
+            <p
+              class="text-fg-light leading-[1.75]"
+              data-i18n="travel.tips.2"
+            ></p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Bottom ornament -->
-    <div class="flex items-center justify-center gap-4 mt-16 mb-4 opacity-40">
-      <span class="block w-12 h-px bg-fg/20"></span>
-      <span class="text-fg/30 text-xs">&#10038; &#10038; &#10038;</span>
-      <span class="block w-12 h-px bg-fg/20"></span>
+    <div class="flex items-center justify-center gap-4 mt-20 mb-4 opacity-30">
+      <span class="block w-16 h-px bg-fg/15"></span>
     </div>
   </div>
 </div>

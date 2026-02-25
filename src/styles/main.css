@@ -369,19 +369,17 @@ h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-/* Chapter layout — image left, text right */
+/* Chapter text divider */
 .story-polaroid-chapter {
-  display: grid;
-  grid-template-columns: 1fr;
-  min-height: 70vh;
-  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem;
 }
 
-@media (min-width: 768px) {
-  .story-polaroid-chapter {
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 2rem;
-  }
+.story-polaroid-chapter .story-polaroid-text-inner {
+  max-width: 600px;
 }
 
 /* Image column */
@@ -409,7 +407,7 @@ h2, h3, h4, h5, h6 {
 .story-polaroid-frame {
   position: relative;
   background-color: var(--color-bg);
-  max-width: 290px;
+  max-width: 320px;
   will-change: transform, opacity;
   cursor: pointer;
 }
@@ -433,6 +431,67 @@ h2, h3, h4, h5, h6 {
   .story-polaroid-interstitial {
     margin-top: 0rem;
     margin-bottom: 0rem;
+  }
+}
+
+/* Tighten consecutive photos in a run */
+:is(.story-photo-single, .story-photo-pair) + :is(.story-photo-single, .story-photo-pair) {
+  margin-top: 0;
+}
+
+/* Flow photos — single with stagger */
+.story-photo-single {
+  display: flex;
+  padding: 1.5rem 2rem;
+}
+
+.story-photo-single[data-stagger="0"] {
+  justify-content: flex-start;
+  padding-left: 8%;
+}
+
+.story-photo-single[data-stagger="1"] {
+  justify-content: flex-end;
+  padding-right: 12%;
+}
+
+.story-photo-single[data-stagger="2"] {
+  justify-content: flex-start;
+  padding-left: 22%;
+}
+
+.story-photo-single[data-stagger="3"] {
+  justify-content: flex-end;
+  padding-right: 5%;
+}
+
+@media (max-width: 767px) {
+  .story-photo-single[data-stagger="0"],
+  .story-photo-single[data-stagger="2"] {
+    padding-left: 6%;
+  }
+
+  .story-photo-single[data-stagger="1"],
+  .story-photo-single[data-stagger="3"] {
+    padding-right: 6%;
+  }
+}
+
+/* Flow photos — paired side-by-side */
+.story-photo-pair {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+}
+
+.story-photo-pair .story-polaroid-frame {
+  max-width: 240px;
+}
+
+@media (max-width: 767px) {
+  .story-photo-pair .story-polaroid-frame {
+    max-width: 160px;
   }
 }
 

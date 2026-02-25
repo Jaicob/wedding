@@ -107,6 +107,39 @@
     "subtitle": "The chapters that led us here",
     "statementLine1": "A love story, written",
     "statementLine2": "one chapter at a time.",
+    "captions": {
+      "001": "Where it all started — the moment everything changed.",
+      "002": "Still learning each other's stories, one conversation at a time.",
+      "003": "The first of many adventures together.",
+      "004": "A quiet moment that said more than words ever could.",
+      "005": "Exploring somewhere new, side by side.",
+      "006": "The kind of day you never want to end.",
+      "007": "Laughing until it hurt — our favorite thing to do.",
+      "008": "Finding beauty in the ordinary, together.",
+      "009": "Miles from home, but exactly where we belonged.",
+      "010": "That look — you know the one.",
+      "011": "A little spontaneity goes a long way.",
+      "012": "Comfort in the quiet, joy in the chaos.",
+      "013": "Every trip taught us something new about each other.",
+      "014a": "Two halves of the same story.",
+      "014b": "Some moments are better shared.",
+      "015": "The world felt bigger with you in it.",
+      "016": "Making memories we'd talk about for years.",
+      "017": "Home was starting to feel like a person, not a place.",
+      "018": "A perfect day, even if nothing went as planned.",
+      "019a": "Side by side, always.",
+      "019b": "The best kind of ordinary.",
+      "020": "Something was about to change — we could feel it.",
+      "021": "Counting down to forever without even knowing it.",
+      "022": "The calm before the most beautiful storm.",
+      "023": "Every detail fell into place.",
+      "024a": "Together in every sense of the word.",
+      "024b": "A glimpse of the life we're building.",
+      "025": "Surrounded by the people who matter most.",
+      "026": "Grateful for every step that led us here.",
+      "027": "Almost there — the best is yet to come.",
+      "028": "And so the next chapter begins."
+    },
     "chapters": [
       {
         "label": "Chapter One",
@@ -137,6 +170,30 @@
         "title": "The Next Chapter",
         "text": "And now we stand at the beginning of something new. With all of you beside us, we're ready to write the rest of this story — together.",
         "back": "The best chapters are still unwritten. And we wouldn't want to write them with anyone else."
+      },
+      {
+        "label": "Chapter Six",
+        "title": "Building Home",
+        "text": "Home stopped being a place and became a person. Somewhere between late-night takeout and Sunday mornings doing nothing at all, we built a world that was entirely ours.",
+        "back": "The little routines we created — those became the foundation for everything that followed."
+      },
+      {
+        "label": "Chapter Seven",
+        "title": "The People We Love",
+        "text": "No love story is written alone. The friends who cheered us on, the families who shaped us — every chapter carries a piece of the people who believed in us from the start.",
+        "back": "We are who we are because of the people who loved us first."
+      },
+      {
+        "label": "Chapter Eight",
+        "title": "Dreams Taking Shape",
+        "text": "What once felt like a distant someday started becoming real — plans sketched on napkins, conversations that stretched past midnight, a future slowly coming into focus.",
+        "back": "The best part of dreaming together is watching those dreams become something you can hold."
+      },
+      {
+        "label": "Chapter Nine",
+        "title": "The Beginning of Forever",
+        "text": "This isn't the end of our story — it's where the real adventure begins. With all of you beside us, we step into forever knowing the best is yet to come.",
+        "back": "Every love story has a beginning. Ours starts here, with you."
       }
     ]
   }

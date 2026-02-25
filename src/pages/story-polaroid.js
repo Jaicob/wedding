@@ -11,68 +11,150 @@ let activeOverlay = null;
 let activeTimeline = null;
 let activeSourceFrame = null;
 
-// Left-side photos: 0 to -30 degrees (tilt left)
-const CHAPTER_ROTS = [-5, -18, -10, -25, -14];
+/* ── Photo sequence ────────────────────────────────────────
+   Each entry is a filename stem (without "story-" prefix / ".png" suffix).
+   Arrays = paired side-by-side.
+   ────────────────────────────────────────────────────────── */
 
-// Right-side interstitial photos: 0 to +30 degrees (tilt right)
-const INTERSTITIAL_CONFIGS = [
-  { rot: 8, offset: "0%" },
-  { rot: 22, offset: "0%" },
-  { rot: 12, offset: "0%" },
-  { rot: 28, offset: "0%" },
+const PHOTOS = [
+  "001-ch",
+  "002",
+  "003-ch",
+  "004-ch",
+  "005",
+  "006",
+  "007",
+  "008",
+  "009-ch",
+  "010",
+  "011",
+  "012",
+  "013",
+  ["014a", "014b-ch"],
+  "015",
+  "016",
+  "017",
+  "018",
+  ["019a", "019b"],
+  "020-ch",
+  "021",
+  "022",
+  "023",
+  ["024a", "024b"],
+  "025",
+  "026-ch",
+  "027-ch",
+  "028-ch",
 ];
+
+// Explicit chapter positions — a chapter is inserted after these stems
+const CHAPTER_AFTER = new Set([
+  "001-ch",
+  "003-ch",
+  "004-ch",
+  "009-ch",
+  "014b-ch",
+  "020-ch",
+  "026-ch",
+  "027-ch",
+  "028-ch",
+]);
+
+const ROTATIONS = [-3, 4, -5, 2, -4, 6, -2, 5, -6, 3];
+
+/* ── Helpers ───────────────────────────────────────────── */
+
+function imgUrl(stem) {
+  return `${import.meta.env.BASE_URL}images/story-${stem}.png`;
+}
+
+function esc(str) {
+  return (str || "").replace(/"/g, "&quot;");
+}
+
+function captionKey(stem) {
+  return stem.replace(/-ch$/, "");
+}
+
+/* ── Build page content ────────────────────────────────── */
 
 function buildChapters(container) {
   const chaptersEl = container.querySelector("#story-polaroid-chapters");
   const chapters = t("storyBook.chapters");
+  const captions = t("storyBook.captions") || {};
   if (!Array.isArray(chapters)) return;
 
   let markup = "";
+  let chapterIndex = 0;
+  let flowIndex = 0;
 
-  chapters.forEach((ch, i) => {
-    const rot = CHAPTER_ROTS[i % CHAPTER_ROTS.length];
-    const imgIndex = (i % 2) + 1;
+  PHOTOS.forEach((entry) => {
+    const isPair = Array.isArray(entry);
 
-    // Chapter with image left, text right
-    const backText = ch.back || "";
-    markup += `
+    // Insert chapter BEFORE the -ch image
+    const triggersChapter = isPair
+      ? entry.some((f) => CHAPTER_AFTER.has(f))
+      : CHAPTER_AFTER.has(entry);
+
+    if (triggersChapter && chapterIndex < chapters.length) {
+      const ch = chapters[chapterIndex];
+
+      markup += `
       <article class="story-polaroid-chapter">
-        <div class="story-polaroid-image-col">
-          <div class="story-polaroid-parallax">
-            <div class="story-polaroid-frame" data-base-rotation="${rot}" data-back="${backText.replace(/"/g, '&quot;')}" data-label="${ch.label}" data-title="${ch.title}">
-              <img src="${import.meta.env.BASE_URL}images/story-${imgIndex}.png" alt="${ch.title}">
-            </div>
-          </div>
-        </div>
-        <div class="story-polaroid-text-col">
-          <div class="story-polaroid-text-inner">
-            <span class="section-label">${ch.label}</span>
-            <h2 class="section-heading">${ch.title}</h2>
-            <div class="body-text">${ch.text}</div>
-          </div>
+        <div class="story-polaroid-text-inner">
+          <span class="section-label">${ch.label}</span>
+          <h2 class="section-heading">${ch.title}</h2>
+          <div class="body-text">${ch.text}</div>
         </div>
       </article>`;
 
-    // Interstitial image between chapters (not after the last one)
-    if (i < chapters.length - 1) {
-      const inter = INTERSTITIAL_CONFIGS[i % INTERSTITIAL_CONFIGS.length];
-      const interImg = ((i + 1) % 2) + 1;
+      chapterIndex++;
+    }
+
+    if (isPair) {
+      const [fileA, fileB] = entry;
+      const capA = captions[captionKey(fileA)] || "";
+      const capB = captions[captionKey(fileB)] || "";
+      const rotA = ROTATIONS[flowIndex % ROTATIONS.length];
+      const rotB = ROTATIONS[(flowIndex + 1) % ROTATIONS.length];
+
       markup += `
-      <div class="story-polaroid-interstitial" style="margin-left:${inter.offset}">
+      <div class="story-photo-pair">
         <div class="story-polaroid-parallax">
-          <div class="story-polaroid-frame" data-base-rotation="${inter.rot}" data-back="${backText.replace(/"/g, '&quot;')}" data-label="${ch.label}" data-title="${ch.title}">
-            <img src="${import.meta.env.BASE_URL}images/story-${interImg}.png" alt="">
+          <div class="story-polaroid-frame" data-base-rotation="${rotA}" data-back="${esc(capA)}" data-label="" data-title="">
+            <img src="${imgUrl(fileA)}" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="story-polaroid-parallax">
+          <div class="story-polaroid-frame" data-base-rotation="${rotB}" data-back="${esc(capB)}" data-label="" data-title="">
+            <img src="${imgUrl(fileB)}" alt="" loading="lazy">
           </div>
         </div>
       </div>`;
+      flowIndex += 2;
+    } else {
+      const stagger = flowIndex % 4;
+      const rot = ROTATIONS[flowIndex % ROTATIONS.length];
+      const cap = captions[captionKey(entry)] || "";
+
+      markup += `
+      <div class="story-photo-single" data-stagger="${stagger}">
+        <div class="story-polaroid-parallax">
+          <div class="story-polaroid-frame" data-base-rotation="${rot}" data-back="${esc(cap)}" data-label="" data-title="">
+            <img src="${imgUrl(entry)}" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>`;
+      flowIndex++;
     }
   });
 
   chaptersEl.innerHTML = markup;
 }
 
+/* ── Animations ────────────────────────────────────────── */
+
 function setupAnimations(container) {
-  // Statement text
   const statement = container.querySelector("#story-polaroid-statement");
   if (statement) {
     const st = ScrollTrigger.create({
@@ -105,17 +187,17 @@ function setupAnimations(container) {
     });
   }
 
-  // Animate all polaroid frames (chapters + interstitials)
   container
     .querySelectorAll(
-      ".story-polaroid-chapter, .story-polaroid-interstitial",
+      ".story-polaroid-chapter, .story-photo-single, .story-photo-pair",
     )
     .forEach((section) => {
       const textInner = section.querySelector(".story-polaroid-text-inner");
-      const parallaxWrap = section.querySelector(".story-polaroid-parallax");
-      const frame = section.querySelector(".story-polaroid-frame");
+      const parallaxWraps = section.querySelectorAll(
+        ".story-polaroid-parallax",
+      );
+      const frames = section.querySelectorAll(".story-polaroid-frame");
 
-      // Text fade in + slide up (only on chapters)
       if (textInner) {
         const st = ScrollTrigger.create({
           trigger: section,
@@ -131,8 +213,7 @@ function setupAnimations(container) {
         triggers.push(st);
       }
 
-      // Polaroid swing in
-      if (frame) {
+      frames.forEach((frame) => {
         const baseRot = parseFloat(frame.dataset.baseRotation) || 0;
         const swingExtra = baseRot > 0 ? 12 : -12;
 
@@ -154,25 +235,26 @@ function setupAnimations(container) {
           scrub: 1.2,
         });
         triggers.push(st);
-      }
+      });
 
-      // Parallax
-      if (parallaxWrap) {
+      parallaxWraps.forEach((wrap) => {
         const st = ScrollTrigger.create({
           trigger: section,
           start: "top bottom",
           end: "bottom top",
           animation: gsap.fromTo(
-            parallaxWrap,
+            wrap,
             { yPercent: -6 },
             { yPercent: 6, ease: "none" },
           ),
           scrub: true,
         });
         triggers.push(st);
-      }
+      });
     });
 }
+
+/* ── Modal ─────────────────────────────────────────────── */
 
 function openPolaroidModal(frame) {
   if (activeOverlay) return;
@@ -184,7 +266,6 @@ function openPolaroidModal(frame) {
   const label = frame.dataset.label || "";
   const title = frame.dataset.title || "";
 
-  // Create overlay
   const overlay = document.createElement("div");
   overlay.className = "story-polaroid-overlay";
   overlay.innerHTML = `
@@ -206,30 +287,25 @@ function openPolaroidModal(frame) {
   activeOverlay = overlay;
   activeSourceFrame = frame;
 
-  // Hide the original so it doesn't double up
   frame.style.visibility = "hidden";
-
-  // Lock scroll
   document.body.style.overflow = "hidden";
 
   const backdrop = overlay.querySelector(".story-polaroid-overlay-backdrop");
   const card = overlay.querySelector(".story-polaroid-modal-card");
-  const perspective = overlay.querySelector(".story-polaroid-modal-perspective");
+  const perspective = overlay.querySelector(
+    ".story-polaroid-modal-perspective",
+  );
 
-  // Calculate modal size — fit within viewport with padding
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   const modalW = Math.min(420, vw - 64);
   const modalH = Math.min(560, vh - 96);
 
-  // Center position
   const centerX = (vw - modalW) / 2;
   const centerY = (vh - modalH) / 2;
 
-  // Match the frame's current rotation so the transition is seamless
   const currentRotation = gsap.getProperty(frame, "rotation") || 0;
 
-  // Set perspective wrapper size + position at the frame's original location
   gsap.set(perspective, {
     position: "fixed",
     width: rect.width,
@@ -247,7 +323,6 @@ function openPolaroidModal(frame) {
     rotateY: 0,
   });
 
-  // Build timeline
   const tl = gsap.timeline({
     defaults: { ease: "power3.inOut" },
   });
@@ -269,7 +344,6 @@ function openPolaroidModal(frame) {
 
   activeTimeline = tl;
 
-  // Close on backdrop click
   backdrop.addEventListener("click", closePolaroidModal);
 }
 
@@ -291,9 +365,11 @@ function closePolaroidModal() {
 
 function handleChapterClick(e) {
   const frame = e.target.closest(".story-polaroid-frame");
-  if (!frame || !frame.dataset.back) return;
+  if (!frame) return;
   openPolaroidModal(frame);
 }
+
+/* ── Lifecycle ─────────────────────────────────────────── */
 
 export function destroyStoryPolaroid() {
   if (activeOverlay) {
@@ -343,7 +419,6 @@ export const storyPolaroidPage = {
       ease: "power2.out",
     });
 
-    // Click-to-flip modal
     container
       .querySelector("#story-polaroid-chapters")
       .addEventListener("click", handleChapterClick);

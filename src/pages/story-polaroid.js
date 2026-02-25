@@ -18,20 +18,20 @@ let activeSourceFrame = null;
 
 const PHOTOS = [
   "001-ch",
-  "002",
-  "003-ch",
+  "002-ch",
+  "003",
   "004-ch",
-  "005",
+  "005-ch",
   "006",
   "007",
   "008",
-  "009-ch",
-  "010",
+  "009-",
+  "010-ch",
   "011",
   "012",
   "013",
-  ["014a", "014b-ch"],
-  "015",
+  ["014a", "014b"],
+  "015-ch",
   "016",
   "017",
   "018",
@@ -42,23 +42,10 @@ const PHOTOS = [
   "023",
   ["024a", "024b"],
   "025",
-  "026-ch",
+  "026",
   "027-ch",
   "028-ch",
 ];
-
-// Explicit chapter positions — a chapter is inserted after these stems
-const CHAPTER_AFTER = new Set([
-  "001-ch",
-  "003-ch",
-  "004-ch",
-  "009-ch",
-  "014b-ch",
-  "020-ch",
-  "026-ch",
-  "027-ch",
-  "028-ch",
-]);
 
 const ROTATIONS = [-3, 4, -5, 2, -4, 6, -2, 5, -6, 3];
 
@@ -73,7 +60,14 @@ function esc(str) {
 }
 
 function captionKey(stem) {
-  return stem.replace(/-ch$/, "");
+  return stem.replace(/-ch$/, "").replace(/-$/, "");
+}
+
+function hasChapterMarker(entry) {
+  if (Array.isArray(entry)) {
+    return entry.some((f) => f.endsWith("-ch"));
+  }
+  return entry.endsWith("-ch");
 }
 
 /* ── Build page content ────────────────────────────────── */
@@ -92,9 +86,7 @@ function buildChapters(container) {
     const isPair = Array.isArray(entry);
 
     // Insert chapter BEFORE the -ch image
-    const triggersChapter = isPair
-      ? entry.some((f) => CHAPTER_AFTER.has(f))
-      : CHAPTER_AFTER.has(entry);
+    const triggersChapter = hasChapterMarker(entry);
 
     if (triggersChapter && chapterIndex < chapters.length) {
       const ch = chapters[chapterIndex];

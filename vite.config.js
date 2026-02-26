@@ -4,12 +4,12 @@ import { createHash } from 'node:crypto';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const password = env.PASSWORD || 'changeme';
+  const password = process.env.PASSWORD || env.PASSWORD || 'changeme';
   const hash = createHash('sha256')
     .update(password.trim().toLowerCase())
     .digest('hex');
 
-  const discountCode = env.DISCOUNT_CODE || '';
+  const discountCode = process.env.DISCOUNT_CODE || env.DISCOUNT_CODE || '';
 
   return {
     base: '/',

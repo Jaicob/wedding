@@ -35,7 +35,7 @@ export const homePage = {
 
   init(container) {
     // Fix image path for base URL
-    container.querySelector('#home-hero-img').src = `${import.meta.env.BASE_URL}images/birds-flying.png`;
+    container.querySelector('#home-hero-img').src = 'https://drg2mhzb9zcts.cloudfront.net/wedding/birds-flying.png';
 
     // Set localized text
     container.querySelector('#home-date').textContent = t('home.date');

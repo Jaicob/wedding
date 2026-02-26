@@ -52,7 +52,7 @@ const ROTATIONS = [-3, 4, -5, 2, -4, 6, -2, 5, -6, 3];
 /* ── Helpers ───────────────────────────────────────────── */
 
 function imgUrl(stem) {
-  return `${import.meta.env.BASE_URL}images/story-${stem}.png`;
+  return `https://drg2mhzb9zcts.cloudfront.net/wedding/story-${stem}.png`;
 }
 
 function esc(str) {

@@ -134,7 +134,7 @@ h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  min-height: 50vh;
   padding: 6rem 2rem 4rem;
   text-align: center;
 }
@@ -437,6 +437,32 @@ h2, h3, h4, h5, h6 {
 /* Tighten consecutive photos in a run */
 :is(.story-photo-single, .story-photo-pair) + :is(.story-photo-single, .story-photo-pair) {
   margin-top: 0;
+}
+
+/* Final photo — centered and slightly larger */
+.story-photo-final {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem 6rem;
+}
+
+.story-photo-final .story-polaroid-frame {
+  max-width: 380px;
+}
+
+@media (max-width: 767px) {
+  .story-photo-final .story-polaroid-frame {
+    max-width: 300px;
+  }
+}
+
+/* Tap hint pulse */
+.story-tap-hint-pulse {
+  animation: tap-hint-pulse 2s ease-in-out infinite;
+}
+@keyframes tap-hint-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 /* Flow photos — single with stagger */

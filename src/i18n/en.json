@@ -120,95 +120,84 @@
   "storyBook": {
     "title": "Our Story",
     "subtitle": "The chapters that led us here",
-    "statementLine1": "A love story, written",
-    "statementLine2": "one chapter at a time.",
+    "statementLine1": "Sharing our worlds",
+    "statementLine2": "with each other.",
+    "tapHint": "Tap the photos to read more",
     "captions": {
-      "001": "Where it all started — the moment everything changed.",
-      "002": "Still learning each other's stories, one conversation at a time.",
-      "003": "The first of many adventures together.",
-      "004": "A quiet moment that said more than words ever could.",
-      "005": "Exploring somewhere new, side by side.",
-      "006": "The kind of day you never want to end.",
-      "007": "Laughing until it hurt — our favorite thing to do.",
-      "008": "Finding beauty in the ordinary, together.",
-      "009": "Miles from home, but exactly where we belonged.",
-      "010": "That look — you know the one.",
-      "011": "A little spontaneity goes a long way.",
-      "012": "Comfort in the quiet, joy in the chaos.",
-      "013": "Every trip taught us something new about each other.",
-      "014a": "Two halves of the same story.",
-      "014b": "Some moments are better shared.",
-      "015": "The world felt bigger with you in it.",
-      "016": "Making memories we'd talk about for years.",
-      "017": "Home was starting to feel like a person, not a place.",
-      "018": "A perfect day, even if nothing went as planned.",
-      "019a": "Side by side, always.",
-      "019b": "The best kind of ordinary.",
-      "020": "Something was about to change — we could feel it.",
-      "021": "Counting down to forever without even knowing it.",
-      "022": "The calm before the most beautiful storm.",
-      "023": "Every detail fell into place.",
-      "024a": "Together in every sense of the word.",
-      "024b": "A glimpse of the life we're building.",
-      "025": "Surrounded by the people who matter most.",
-      "026": "Grateful for every step that led us here.",
-      "027": "Almost there — the best is yet to come.",
-      "028": "And so the next chapter begins."
+      "001": "I was curious about her, she seemed shy at first, I probably was too. I could barely walk at the time due to an injury but I didn't want the date to end so I powered through and we walked through the neighborhood to dinner. By the end of the day I felt I got a glimpse into who she is and I wanted to see her again.",
+      "002": "You know what they say about distance. When either of us returned it was a happy moment. She brought me back a chess board, and I got to see her competitive charm for the first time.",
+      "003": "I managed to perfectly balance my car on a rock. It was an embarrassing moment, but she did not judge me for it and we were able to laugh it off over udon later that day.",
+      "004": "We stumbled across a bluegrass festival in Golden Gate Park, and everything felt perfect.",
+      "005": "We had our challenges. Both of us come from different backgrounds and with different experiences and different points of view. I felt connected to this person though and in Dana's words \"we make a good team.\" We had fun together. I wanted to keep that going.",
+      "006": "It felt natural travelling together. I finally got to feel the romance of being in NYC during the holidays with someone special.",
+      "007": "I wanted to show her the beauty of California and…",
+      "008": "To give her a memorable birthday experience to express that I wanted to be with her for a long time.",
+      "009": "For my birthday she planned a whole day of puzzles, activities and special moments. I was truly touched. I've never experienced anything like it before. It's one of my most cherished memories.",
+      "011": "We attended a wedding together in Greece. I was in awe of the surrounding beauty and feeling inspired about the future, our future.",
+      "012": "Portugal felt like our first big adventure. Exploring, indulging, and admiring. I remember watching her walk up a hill to our next hotel and feeling love for her.",
+      "013a": "Some days you feel down for no reason",
+      "013b": "Usually it means you just need to go outside",
+      "014": "I was curious to see how Dana would do travelling with my family. They can be a handful..",
+      "015": "She fit right in. We shared KBBQ with my parents and caught last minute tickets to go see Les Mis with my little sister.",
+      "016": "In York I again watched Dana walk ahead of me, feeling love for her. We passed a shop with engagement rings and it crossed my mind that maybe I should buy one.",
+      "017": "Winding our trip we watched a fire-like sunset that will forever be vividly burned into my memory.",
+      "018a": "Watching Dana react to Yosemite with tears motivated me more than ever to show her all the beautiful things in the world.",
+      "018b": "We arrived late to our cabin and it was this night I learned of the determination of Dana's midnight cravings. The steak was good though.",
+      "019": "Saying goodbye every weekend was getting harder and harder. I was excited to start building a life together and invited Dana to move in.",
+      "020": "My first visit to Korea I was nervous, curious, excited, and relieved. Dana has a lovely family. I felt a sense of wonder thinking about the idea of having another place I could call home",
+      "021": "Listening to live music sitting among the Cherry Blossoms; A real life K-drama! It was a different kind of beauty than I've ever experienced.",
+      "022a": "The pork was average but the vibes were 20/10.",
+      "022b": "I often look forward to more of these nights.",
+      "023": "In Japan we both felt equally lost. It was a hard day getting to this hotel but the goofy photoshoot we had was worth the struggle. It's good to have someone by your side when everything feels unfamiliar. \"We make a good team.\"",
+      "024": "My lowest point, and honestly a blur. I felt cared for though and grateful to the entire Choi family.",
+      "025": "We had to buckle down. It was one of the hardest years for both of us full of work, uncertainty and change. I was grateful I did not have to go through it alone and that we were able to support each other's goals. Turns out Dana makes a great business advisor!",
+      "026": "Just a few months before meeting Dana I came to this spot and thought to myself that it'd be a perfect place to propose to someone one day."
     },
     "chapters": [
       {
         "label": "Chapter One",
-        "title": "A Chance Encounter",
-        "text": "Some stories begin with a grand gesture, but ours started with a quiet moment — a glance across a room, an unexpected conversation, and the feeling that something had just shifted.",
-        "back": "We never expected that one conversation to change everything. But looking back, it was the moment our story truly began."
+        "title": "The Day We Met",
+        "text": "When I left New York and moved to San Francisco, I thought to myself that I should meet a \"tech guy.\" When we first met, I don't think either of us attached much meaning to it. But before we met, Jaicob told me, \"My mission is to make you fall in love with San Francisco,\" and that secretly made me excited. Our first date was simple — coffee in the park that turned into wine, and dinner — but somehow the day flew by in an instant."
       },
       {
         "label": "Chapter Two",
-        "title": "First Adventures",
-        "text": "What started as coffee dates turned into long weekends exploring new places together. Every trip revealed something new — not just about the world, but about each other.",
-        "back": "Every new place we explored together felt like discovering a piece of home we didn't know we were missing."
+        "title": "More Than Friends",
+        "text": "The phase when we were something between friends and not-quite-friends. After meeting Jaicob, I went on a two-week trip to Argentina. Later he traveled to Europe for two weeks with his family and then I went back to Korea during the summer. There were quite a few stretches when we were apart. And yet, somehow, we kept finding our way back to each other. I brought back a chess set from Argentina, and Jaicob gave me a painting and a bracelet from Europe. They felt like small tokens proving that we had been thinking of each other during our travels."
       },
       {
         "label": "Chapter Three",
-        "title": "Growing Together",
-        "text": "Life isn't always easy, but facing it together made all the difference. Through late nights, big moves, and quiet evenings at home, we built something that felt unshakeable.",
-        "back": "The quiet moments — the ones no one else sees — those are the ones that made us who we are together."
+        "title": "Making It Official",
+        "text": "We officially became a couple. On a rainy day, very casually, Jaicob asked, \"Will you be my girlfriend?\" At the time, we had no idea what we would end up facing together in the future…"
       },
       {
         "label": "Chapter Four",
-        "title": "The Question",
-        "text": "There are moments you replay in your mind forever. A heartbeat of silence before the answer, and then — everything changed, and nothing changed at all.",
-        "back": "In that single heartbeat of silence, a lifetime of love was already written. The answer was always yes."
+        "title": "The Holidays",
+        "text": "Christmas, my birthday, Jaicob's birthday, and Valentine's Day were all clustered together. Under warm yellow lights and a festive atmosphere, time passed quickly. We still weren't at a place where we could easily open up about deeper feelings, so we didn't really know how to untangle awkwardness or discomfort. As a couple of shy people it's something we would continue to work on together."
       },
       {
         "label": "Chapter Five",
-        "title": "The Next Chapter",
-        "text": "And now we stand at the beginning of something new. With all of you beside us, we're ready to write the rest of this story — together.",
-        "back": "The best chapters are still unwritten. And we wouldn't want to write them with anyone else."
+        "title": "First Trip Abroad",
+        "text": "On our first long-distance trip together, we experienced both new joys and discomfort at the same time. After a 17-hour flight and in unfamiliar surroundings, we learned more about what each of us liked and disliked. For me, it was my first time back in Europe in ten years, so it felt especially emotional. Walking again through places that had shaped my life, this time with Jaicob, brought a deep sense of nostalgia. I was grateful that we could eat the same food and look out at the same views in Greece and Portugal."
       },
       {
         "label": "Chapter Six",
-        "title": "Building Home",
-        "text": "Home stopped being a place and became a person. Somewhere between late-night takeout and Sunday mornings doing nothing at all, we built a world that was entirely ours.",
-        "back": "The little routines we created — those became the foundation for everything that followed."
+        "title": "Growing Closer",
+        "text": "We traveled with Jaicob's family for ten days. The trip started in Atlanta and continued through London, Edinburgh, York, and Hampshire. We know that we will never forget the unbelievably fiery red sky we saw in Hampshire. Little by little, we began to blend into each other's families and everyday lives."
       },
       {
         "label": "Chapter Seven",
-        "title": "The People We Love",
-        "text": "No love story is written alone. The friends who cheered us on, the families who shaped us — every chapter carries a piece of the people who believed in us from the start.",
-        "back": "We are who we are because of the people who loved us first."
+        "title": "Dana's World",
+        "text": "I introduce \"me\" to Jaicob. Even though he already enjoyed Korean food and watched Korean TV series with me, I wanted to properly show him Korean culture. He met my family, and we shared late-night samgyeopsal and soju at a pocha. Ordinary moments of my life in Korea became something special."
       },
       {
         "label": "Chapter Eight",
-        "title": "Dreams Taking Shape",
-        "text": "What once felt like a distant someday started becoming real — plans sketched on napkins, conversations that stretched past midnight, a future slowly coming into focus.",
-        "back": "The best part of dreaming together is watching those dreams become something you can hold."
+        "title": "Side by Side",
+        "text": "A time when we focused on our individual goals. I started a new project and became busy, and Jaicob was also super busy with re-building his business. The main thing I could do for him was cook — and that's when my cooking skills improved a lot. Under the same roof, we struggled side by side chasing our own goals. Through the hard times, we felt more certain that no matter what happens, we could always support and lean on each other."
       },
       {
         "label": "Chapter Nine",
         "title": "The Beginning of Forever",
-        "text": "This isn't the end of our story — it's where the real adventure begins. With all of you beside us, we step into forever knowing the best is yet to come.",
-        "back": "Every love story has a beginning. Ours starts here, with you."
+        "text": "These past few years have been full of highs and lows, special moments and challenges but undoubtedly the best years of my life so far. This journey is truly different for everyone. It takes determination and relentless willingness to understand one another. I love who we are becoming together, the fun we have, the life we are building. I look forward to doing it forever, wherever that takes us."
       }
     ]
   }

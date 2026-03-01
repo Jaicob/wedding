@@ -20,31 +20,29 @@ const PHOTOS = [
   "001-ch",
   "002-ch",
   "003",
-  "004-ch",
+  "004",
   "005-ch",
-  "006",
+  "006-ch",
   "007",
   "008",
-  "009-",
-  "010-ch",
-  "011",
+  "009",
+  // "010-ch",
+  "011-ch",
   "012",
-  "013",
-  ["014a", "014b"],
-  "015-ch",
+  ["013a", "013b"],
+  "014-ch",
+  "015",
   "016",
   "017",
-  "018",
-  ["019a", "019b"],
+  ["018a", "018b"],
+  "019",
   "020-ch",
   "021",
-  "022",
+  ["022a", "022b"],
   "023",
-  ["024a", "024b"],
-  "025",
-  "026",
-  "027-ch",
-  "028-ch",
+  "024",
+  "025-ch",
+  "026-ch",
 ];
 
 const ROTATIONS = [-3, 4, -5, 2, -4, 6, -2, 5, -6, 3];
@@ -52,7 +50,8 @@ const ROTATIONS = [-3, 4, -5, 2, -4, 6, -2, 5, -6, 3];
 /* ── Helpers ───────────────────────────────────────────── */
 
 function imgUrl(stem) {
-  return `https://drg2mhzb9zcts.cloudfront.net/wedding/story-${stem}.png`;
+  // return `https://drg2mhzb9zcts.cloudfront.net/wedding/story-${stem}.png`;
+  return `/images/story-${stem}.png`;
 }
 
 function esc(str) {
@@ -82,8 +81,9 @@ function buildChapters(container) {
   let chapterIndex = 0;
   let flowIndex = 0;
 
-  PHOTOS.forEach((entry) => {
+  PHOTOS.forEach((entry, entryIndex) => {
     const isPair = Array.isArray(entry);
+    const isLast = entryIndex === PHOTOS.length - 1;
 
     // Insert chapter BEFORE the -ch image
     const triggersChapter = hasChapterMarker(entry);
@@ -125,11 +125,26 @@ function buildChapters(container) {
       </div>`;
       flowIndex += 2;
     } else {
-      const stagger = flowIndex % 4;
       const rot = ROTATIONS[flowIndex % ROTATIONS.length];
       const cap = captions[captionKey(entry)] || "";
 
-      markup += `
+      if (isLast) {
+        markup += `
+      <div class="story-photo-final">
+        <div class="story-polaroid-parallax">
+          <div class="story-polaroid-frame" data-base-rotation="0" data-back="${esc(cap)}" data-label="" data-title="">
+            <img src="${imgUrl(entry)}" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>`;
+      } else {
+        const stagger = flowIndex % 4;
+        const isFirst = entryIndex === 0;
+        if (isFirst) {
+          markup += `
+      <p id="story-tap-hint" class="text-center text-sm tracking-[0.2em] text-accent mt-2 mb--2 story-tap-hint-pulse">↓ ${esc(t('storyBook.tapHint'))} ↓</p>`;
+        }
+        markup += `
       <div class="story-photo-single" data-stagger="${stagger}">
         <div class="story-polaroid-parallax">
           <div class="story-polaroid-frame" data-base-rotation="${rot}" data-back="${esc(cap)}" data-label="" data-title="">
@@ -137,6 +152,7 @@ function buildChapters(container) {
           </div>
         </div>
       </div>`;
+      }
       flowIndex++;
     }
   });
@@ -181,7 +197,7 @@ function setupAnimations(container) {
 
   container
     .querySelectorAll(
-      ".story-polaroid-chapter, .story-photo-single, .story-photo-pair",
+      ".story-polaroid-chapter, .story-photo-single, .story-photo-pair, .story-photo-final",
     )
     .forEach((section) => {
       const textInner = section.querySelector(".story-polaroid-text-inner");
@@ -248,8 +264,16 @@ function setupAnimations(container) {
 
 /* ── Modal ─────────────────────────────────────────────── */
 
+function dismissTapHint() {
+  const hint = document.getElementById("story-tap-hint");
+  if (hint && hint.style.opacity !== "0") {
+    gsap.to(hint, { opacity: 0, y: -8, duration: 0.6, ease: "power2.out", onComplete: () => hint.remove() });
+  }
+}
+
 function openPolaroidModal(frame) {
   if (activeOverlay) return;
+  dismissTapHint();
 
   const rect = frame.getBoundingClientRect();
   const img = frame.querySelector("img");
@@ -383,8 +407,6 @@ export const storyPolaroidPage = {
   init(container) {
     container.querySelector("#story-polaroid-title").textContent =
       t("storyBook.title");
-    container.querySelector("#story-polaroid-subtitle").textContent =
-      t("storyBook.subtitle");
 
     const statementLine1 = t("storyBook.statementLine1") || "";
     const statementLine2 = t("storyBook.statementLine2") || "";

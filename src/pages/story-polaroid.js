@@ -50,8 +50,8 @@ const ROTATIONS = [-3, 4, -5, 2, -4, 6, -2, 5, -6, 3];
 /* ── Helpers ───────────────────────────────────────────── */
 
 function imgUrl(stem) {
-  // return `https://drg2mhzb9zcts.cloudfront.net/wedding/story-${stem}.png`;
-  return `/images/story-${stem}.png`;
+  return `https://drg2mhzb9zcts.cloudfront.net/wedding/story-${stem}.png`;
+  // return `/images/story-${stem}.png`;
 }
 
 function esc(str) {

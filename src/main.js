@@ -12,6 +12,7 @@ import { registryPage } from './pages/registry.js';
 import { storyBookPage, destroyStoryBook } from './pages/our-story-book.js';
 import { storyPolaroidPage, destroyStoryPolaroid } from './pages/story-polaroid.js';
 import { valentinePage, destroyValentine } from './pages/valentine.js';
+import { invitePage, destroyInvite } from './pages/invite.js';
 import { startEffect, stopEffect } from './effects/index.js';
 
 // Containers
@@ -20,7 +21,7 @@ const headerContainer = document.getElementById('header-container');
 setContainer(app);
 
 // Track cleanup functions per page
-const cleanups = { home: destroyHome, 'our-story-book': destroyStoryBook, 'story-polaroid': destroyStoryPolaroid, valentine: destroyValentine };
+const cleanups = { home: destroyHome, 'our-story-book': destroyStoryBook, 'story-polaroid': destroyStoryPolaroid, valentine: destroyValentine, invite: destroyInvite };
 
 // Register pages
 registerPage('password', passwordPage);
@@ -32,10 +33,11 @@ registerPage('registry', registryPage);
 registerPage('our-story-book', storyBookPage);
 registerPage('story-polaroid', storyPolaroidPage);
 registerPage('valentine', valentinePage);
+registerPage('invite', invitePage);
 
 // Show/hide header based on page
 function updateHeader(pageName) {
-  if (pageName === 'password' || pageName === 'valentine') {
+  if (pageName === 'password' || pageName === 'valentine' || pageName === 'invite') {
     headerContainer.innerHTML = '';
     return;
   }

@@ -38,13 +38,13 @@
 @theme {
   /* Base palette */
   --color-bg: #f0ecdf;
-  --color-fg: #291C0E;
+  --color-fg: #3E3326;
   --color-accent: #2352b8;
 
   /* Lighter / darker variations */
   --color-bg-light: #f7f5ed;
   --color-bg-dark: #e4dece;
-  --color-fg-light: #291C0E;
+  --color-fg-light: #3E3326;
   --color-fg-muted: #655A4D;
   --color-accent-light: #3a6ad4;
   --color-accent-dark: #1a3e8a;

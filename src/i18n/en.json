@@ -102,6 +102,21 @@
     "linkText": "View Our Registry",
     "url": "#"
   },
+  "invite": {
+    "line1": "You are formally invited",
+    "line2": "to the wedding of",
+    "couple": "Dana & Jaicob",
+    "placeholder": "Enter password",
+    "submit": "Enter",
+    "error": "Incorrect password, please try again",
+    "date": "August 28, 2026",
+    "location": "Wailea, Hawaii",
+    "message": "We can't wait to share this special day with you.\n Come celebrate a late-summer night with us.",
+    "rsvp": "RSVP",
+    "rsvpBy": "Please respond by April 28, 2026",
+    "alreadyRsvp": "If you have already completed the RSVP, you can view more information about the wedding such as travel tips, hotels, and more about the couple.",
+    "viewMore": "View Wedding Details"
+  },
   "storyBook": {
     "title": "Our Story",
     "subtitle": "The chapters that led us here",

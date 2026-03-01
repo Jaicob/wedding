@@ -1,0 +1,85 @@
+<div id="invite-scene" class="fixed inset-0 bg-bg overflow-y-auto">
+
+  <!-- Language toggle — fixed top-right on both states -->
+  <button id="invite-lang-toggle"
+          class="fixed top-6 right-6 z-50 text-xs tracking-widest uppercase text-fg-muted hover:text-fg transition-colors duration-500 cursor-pointer">
+  </button>
+
+  <!-- State 1: Sealed invitation -->
+  <div id="invite-sealed" class="flex items-center justify-center min-h-screen px-8">
+    <div class="max-w-sm w-full">
+      <p id="invite-dear" class="text-sm tracking-wide text-fg mb-10 hidden"></p>
+      <p id="invite-line1" class="text-xs tracking-[0.2em] text-fg-muted mb-4"></p>
+      <p id="invite-line2" class="text-xs tracking-[0.2em] text-fg-muted mb-10"></p>
+      <h1 id="invite-couple" class="font-heading text-5xl md:text-7xl lg:text-8xl text-fg mb-14"></h1>
+
+      <div class="flex flex-col gap-6 max-w-56">
+        <input
+          id="invite-input"
+          type="password"
+          autocomplete="off"
+          class="w-full bg-transparent border-b border-fg/20 focus:border-fg/50
+                 text-sm tracking-wider py-2 outline-none transition-colors duration-500
+                 placeholder:text-fg/25 placeholder:tracking-widest placeholder:text-xs"
+        />
+        <button
+          id="invite-submit"
+          class="self-start text-xs tracking-[0.3em] uppercase text-fg/40
+                 hover:text-fg transition-colors duration-500 cursor-pointer"
+        ></button>
+        <p id="invite-error" class="text-red-700/70 text-xs tracking-wide opacity-0 transition-opacity duration-500"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- State 2: Opened invitation (hidden initially, all children start invisible) -->
+  <div id="invite-reveal" class="hidden">
+    <!-- Corner flowers — pinned to viewport, cropped off-screen for background feel -->
+    <img id="invite-flower-tr"
+         src="https://drg2mhzb9zcts.cloudfront.net/wedding/top-right-flower.png"
+         alt=""
+         class="invite-flower fixed top-0 right-0 z-0 w-[65vw] max-w-[525px] -translate-y-[45%] translate-x-[40%] min-[951px]:-translate-y-[33%] min-[951px]:translate-x-[23%] pointer-events-none select-none"
+         style="opacity:0"
+    />
+    <img id="invite-flower-bl"
+         src="https://drg2mhzb9zcts.cloudfront.net/wedding/bottom-left-flower.png"
+         alt=""
+         class="invite-flower fixed bottom-0 left-0 z-0 w-[65vw] max-w-[525px] translate-y-[40%] -translate-x-[40%] min-[951px]:translate-y-[23%] min-[951px]:-translate-x-[23%] pointer-events-none select-none"
+         style="opacity:0"
+    />
+
+
+
+    <div class="flex items-center justify-center min-h-screen px-8 py-12 min-[951px]:py-24 relative z-10">
+      <div class="max-w-sm w-full text-center">
+        <p id="invite-date" class="invite-el text-xs tracking-[0.35em] uppercase text-fg-muted mb-2" style="opacity:0"></p>
+        <p id="invite-location" class="invite-el text-xs tracking-[0.25em] uppercase text-fg-muted mb-8 min-[951px]:mb-14" style="opacity:0"></p>
+
+        <p id="invite-message" class="invite-el text-sm min-[951px]:text-base leading-relaxed text-fg text-pretty whitespace-pre-line mb-8 min-[951px]:mb-14" style="opacity:0"></p>
+
+        <div id="invite-rsvp-wrap" class="invite-el mb-2 min-[951px]:mb-3" style="opacity:0">
+          <a id="invite-rsvp"
+             href="https://withjoy.com/dana-jaicob/rsvp"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="inline-block px-10 py-3 text-xs tracking-[0.3em] uppercase border border-accent/60 text-accent
+                    hover:border-accent transition-colors duration-500">
+          </a>
+        </div>
+        <p id="invite-rsvp-by" class="invite-el text-xs tracking-wide text-fg-muted mb-12 min-[951px]:mb-20" style="opacity:0"></p>
+
+        <div class="invite-el w-12 border-t border-fg/15 mb-8 min-[951px]:mb-12 mx-auto" style="opacity:0"></div>
+
+        <p id="invite-already" class="invite-el text-sm leading-relaxed text-fg-muted text-pretty mb-4 min-[951px]:mb-6" style="opacity:0"></p>
+        <div class="invite-el" style="opacity:0">
+          <a id="invite-view-more"
+             href="#/home"
+             class="inline-block px-8 py-2.5 text-xs tracking-[0.3em] uppercase border border-fg/25 text-fg
+                    hover:border-fg/60 transition-colors duration-500">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

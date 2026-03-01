@@ -31,6 +31,12 @@ export function renderHeader() {
               ${t(l.key)}
             </a>
           `).join('')}
+          <a href="https://withjoy.com/dana-jaicob/rsvp"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="nav-link text-sm tracking-widest uppercase transition-colors duration-200 text-fg-muted hover:text-fg">
+            RSVP
+          </a>
         </nav>
 
         <div class="flex items-center gap-4">
@@ -56,6 +62,12 @@ export function renderHeader() {
               ${t(l.key)}
             </a>
           `).join('')}
+          <a href="https://withjoy.com/dana-jaicob/rsvp"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-sm tracking-widest uppercase transition-colors duration-200 text-fg-muted hover:text-fg">
+            RSVP
+          </a>
         </nav>
       </div>
     </header>

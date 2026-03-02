@@ -44,7 +44,7 @@ export function renderHeader() {
                   class="text-xs tracking-widest uppercase text-fg-muted hover:text-fg transition-colors cursor-pointer">
             ${otherLabel}
           </button>
-          <button id="mobile-menu-btn" class="md:hidden text-fg cursor-pointer">
+          <button id="mobile-menu-btn" class="md:hidden text-fg cursor-pointer" style="background-color:#e2dfd2;border-radius:400px;padding:5px">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>

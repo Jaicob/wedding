@@ -360,7 +360,7 @@ function openPolaroidModal(frame) {
 
   activeTimeline = tl;
 
-  backdrop.addEventListener("click", closePolaroidModal);
+  overlay.addEventListener("click", closePolaroidModal);
 }
 
 function closePolaroidModal() {

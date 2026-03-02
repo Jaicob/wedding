@@ -76,7 +76,13 @@ h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* Korean font override */
+/* Korean font override — override theme variables so every use of
+   var(--font-heading) / var(--font-body) picks up Gowun Batang */
+:lang(ko) {
+  --font-heading: 'Gowun Batang', serif;
+  --font-body: 'Gowun Batang', serif;
+}
+
 :lang(ko) body {
   font-family: 'Gowun Batang', serif;
 }

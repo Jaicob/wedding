@@ -1,12 +1,20 @@
-<div class="pt-24 min-h-screen px-6 max-w-3xl mx-auto pb-20">
-  <h2 id="schedule-title" class="font-heading text-4xl md:text-5xl text-center mb-12"></h2>
+<div class="schedule-page min-h-screen flex flex-col items-center pt-28 pb-24 px-6">
+  <!-- Header -->
+  <div class="text-center mb-16">
+    <h1 id="schedule-title" class="hero-title text-center"></h1>
+    <p id="schedule-date" class="text-[0.6875rem] tracking-[0.25em] uppercase text-fg-muted mt-4"></p>
+    <p id="schedule-venue" class="text-[0.6875rem] tracking-[0.25em] uppercase text-fg-muted mt-1"></p>
+  </div>
+
+  <p id="schedule-subtitle" class="text-fg-muted text-sm text-center max-w-sm mb-14 leading-relaxed"></p>
 
   <!-- Timeline -->
-  <div id="schedule-timeline" class="relative">
-    <!-- Vertical line -->
-    <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-accent/20 -translate-x-1/2"></div>
+  <div id="schedule-timeline" class="schedule-timeline">
+    <div id="schedule-events"></div>
+  </div>
 
-    <!-- Events injected here by JS -->
-    <div id="schedule-events" class="space-y-10"></div>
+  <!-- Bottom ornament -->
+  <div class="flex items-center justify-center gap-4 mt-20 opacity-30">
+    <span class="block w-16 h-px bg-fg/15"></span>
   </div>
 </div>

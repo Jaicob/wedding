@@ -6,7 +6,7 @@ const navLinks = [
   { page: 'home', key: 'nav.home' },
   { page: 'story', key: 'nav.story' },
   { page: 'travel', key: 'nav.travel' },
-  // { page: 'schedule', key: 'nav.schedule' },
+  { page: 'schedule', key: 'nav.schedule' },
   // { page: 'registry', key: 'nav.registry' },
 ];
 

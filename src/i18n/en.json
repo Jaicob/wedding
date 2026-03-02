@@ -26,7 +26,7 @@
   },
   "travel": {
     "title": "Travel",
-    "message": "We know that traveling for a destination wedding can take extra time and planning, and we completely understand if you’re not able to join us in person. We are so grateful for your love and well wishes.\n\nIf you’re able to make the trip, we’re so excited to celebrate together! Below you’ll find directions to the venue and a few places to stay.",
+    "message": "We know that traveling for a destination wedding can take extra time and planning, and we completely understand if you’re not able to join us in person. We are so grateful for your love and well wishes.\n\nIf you’re able to make the trip, we’re so excited to celebrate together! Below you’ll find directions to the venue — Hotel Wailea, and a few places to stay.",
     "flightsTitle": "Flights",
     "flightsLabel": "Airport",
     "hotelTitle": "Where to Stay",
@@ -75,11 +75,17 @@
   },
   "schedule": {
     "title": "Schedule",
+    "subtitle": "We'll share the final timeline closer to the wedding, but here is the expected schedule.",
+    "date": "August 28, 2026",
+    "venue": "Hotel Wailea",
     "events": [
-      { "time": "2:00 PM", "title": "Ceremony", "description": "Join us as we say our vows", "location": "Venue details coming soon" },
-      { "time": "3:00 PM", "title": "Cocktail Hour", "description": "Drinks and light bites while we take photos", "location": "" },
-      { "time": "4:30 PM", "title": "Reception", "description": "Dinner, toasts, and dancing", "location": "" },
-      { "time": "9:00 PM", "title": "After Party", "description": "Keep the celebration going", "location": "" }
+      { "time": "4:50 PM", "title": "Guests Arrive", "icon": "arrive" },
+      { "time": "5:15 PM", "title": "Ceremony", "icon": "ceremony" },
+      { "time": "5:45 PM", "title": "Photo", "icon": "photo" },
+      { "time": "6:00 PM", "title": "Cocktail Hour", "icon": "cocktail" },
+      { "time": "7:15 PM", "title": "Dinner", "icon": "dinner" },
+      { "time": "8:00 PM", "title": "Let's Dance!", "icon": "dance" },
+      { "time": "10:00 PM", "title": "Event Concludes", "icon": "conclude" }
     ]
   },
   "registry": {

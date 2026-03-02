@@ -56,7 +56,7 @@
     ],
     "hotel": {
       "name": "Hotel Wailea",
-      "description": "We're getting married at Hotel Wailea, and have special discounted rates for our guests. Book through the Hotel Wailea website and enter the promo code below. The discount code is valid between August 25 - September 2, 2026.",
+      "description": "We're getting married at Hotel Wailea, and have special discounted rates for our guests. Book through the Hotel Wailea website and enter the promo code below. The <span class=\"text-accent font-medium\">25%</span> discount code is valid between August 25 - September 2, 2026.",
       "note": "We'd love for everyone to stay close by and make a weekend of it, so we recommend booking early before rooms fill up.",
       "promoLabel": "Discount Code",
       "link": "https://www.hotelwailea.com",
@@ -70,7 +70,7 @@
     "tips": [
       "Late August in Maui is warm and sunny — expect temperatures around 85°F (29°C).",
       "Don't forget reef-safe sunscreen! Hawaii law requires it to protect the coral reefs.",
-      "If you're extending your trip, the Road to Hana, Haleakalā sunrise, and snorkeling at Molokini are must-dos."
+      "Planning to snorkel or hit the beaches? Bringing your own snorkel gear and swim essentials is a great idea — rentals can add up quickly, and you'll be ready to jump right in."
     ]
   },
   "schedule": {
@@ -106,9 +106,9 @@
   "storyBook": {
     "title": "Our Story",
     "subtitle": "The chapters that led us here",
-    "statementLine1": "Sharing our worlds",
-    "statementLine2": "with each other.",
-    "tapHint": "Tap the photos to read more",
+    "statementLine1": "Sharing our stories",
+    "statementLine2": "from our perspectives.",
+    "tapHint": "Tap the photos to read from Jaicob's side",
     "captions": {
       "001": "I was curious about her, she seemed shy at first, I probably was too. I could barely walk at the time due to an injury but I didn't want the date to end so I powered through and we walked through the neighborhood to dinner. By the end of the day I felt I got a glimpse into who she is and I wanted to see her again.",
       "002": "You know what they say about distance. When either of us returned it was a happy moment. She brought me back a chess board, and I got to see her competitive charm for the first time.",
@@ -127,8 +127,8 @@
       "015": "She fit right in. We shared KBBQ with my parents and caught last minute tickets to go see Les Mis with my little sister.",
       "016": "In York I again watched Dana walk ahead of me, feeling love for her. We passed a shop with engagement rings and it crossed my mind that maybe I should buy one.",
       "017": "Winding our trip we watched a fire-like sunset that will forever be vividly burned into my memory.",
-      "018a": "Watching Dana react to Yosemite with tears motivated me more than ever to show her all the beautiful things in the world.",
-      "018b": "We arrived late to our cabin and it was this night I learned of the determination of Dana's midnight cravings. The steak was good though.",
+      "018a": "We arrived late to our cabin and it was this night I learned of the determination of Dana's midnight cravings. The steak was good though.",
+      "018b": "Watching Dana react to Yosemite with tears motivated me more than ever to show her all the beautiful things in the world.",
       "019": "Saying goodbye every weekend was getting harder and harder. I was excited to start building a life together and invited Dana to move in.",
       "020": "My first visit to Korea I was nervous, curious, excited, and relieved. Dana has a lovely family. I felt a sense of wonder thinking about the idea of having another place I could call home",
       "021": "Listening to live music sitting among the Cherry Blossoms; A real life K-drama! It was a different kind of beauty than I've ever experienced.",
@@ -173,7 +173,7 @@
       {
         "label": "Chapter Seven",
         "title": "Dana's World",
-        "text": "I introduce \"me\" to Jaicob. Even though he already enjoyed Korean food and watched Korean TV series with me, I wanted to properly show him Korean culture. He met my family, and we shared late-night samgyeopsal and soju at a pocha. Ordinary moments of my life in Korea became something special."
+        "text": "I introduced \"my world\" to Jaicob. Even though he already enjoyed Korean food and watched Korean TV series with me, I wanted to properly show him Korean culture. He met my family, and we shared late-night samgyeopsal and soju at a pocha. Ordinary moments of my life in Korea became something special."
       },
       {
         "label": "Chapter Eight",

@@ -188,6 +188,10 @@ h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
+.story-polaroid-chapter .section-heading {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
 .body-text {
   font-size: clamp(0.875rem, 1.2vw, 1rem);
   line-height: 1.8;

@@ -14,7 +14,10 @@ export const travelPage = {
     // Bind all data-i18n elements
     container.querySelectorAll('[data-i18n]').forEach(el => {
       const value = t(el.getAttribute('data-i18n'));
-      if (typeof value === 'string') el.textContent = value;
+      if (typeof value === 'string') {
+        if (value.includes('<')) el.innerHTML = value;
+        else el.textContent = value;
+      }
     });
 
     // Hotel link href

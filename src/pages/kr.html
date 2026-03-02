@@ -1,0 +1,80 @@
+<div lang="ko" class="kr-page">
+
+  <!-- ===== Section 1: Home Hero ===== -->
+  <section class="flex flex-col items-center justify-center min-h-[90vh] text-center px-6 pt-12">
+
+    <img id="kr-hero-img" src="" alt="Dana & Jaicob" class="mb-8 max-w-60">
+
+    <p id="kr-date" class="text-sm tracking-[0.3em] uppercase text-fg-muted mb-4"></p>
+    <h1 id="kr-couple" class="font-heading text-5xl md:text-7xl lg:text-8xl text-fg mb-2"></h1>
+    <p id="kr-location" class="text-sm tracking-[0.2em] uppercase text-fg-muted mt-2 mb-12"></p>
+
+    <!-- Countdown -->
+    <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 mb-12 text-sm md:text-base tracking-widest text-fg-muted">
+      <span><span id="kr-cd-days" class="text-accent mr-2">--</span><span class="kr-cd-label"></span></span>
+      <span><span id="kr-cd-hours" class="text-accent mr-2">--</span><span class="kr-cd-label"></span></span>
+      <span><span id="kr-cd-minutes" class="text-accent mr-2">--</span><span class="kr-cd-label"></span></span>
+    </div>
+
+    <div>
+      <p id="kr-message" class="mt-6 text-sm md:text-base leading-relaxed text-fg-light text-pretty whitespace-pre-line"></p>
+      <a id="kr-rsvp"
+         href="https://withjoy.com/dana-jaicob/rsvp"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-block mt-10 px-10 py-3 text-sm tracking-widest uppercase border border-accent text-accent
+                hover:bg-accent hover:text-bg transition-all duration-300">
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Section 2: Bank Info ===== -->
+  <section class="py-20 px-6">
+    <div class="max-w-lg mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-heading mb-4">마음 전하실 곳</h2>
+      <p class="text-sm md:text-base leading-relaxed text-fg-light mb-10">
+        축하의 마음을 전해 주고 싶으신 분들을 위해 계좌 정보를 안내드립니다.
+      </p>
+
+      <div class="flex flex-col gap-4">
+        <!-- Card 1: Bride -->
+        <div class="kr-bank-card">
+          <p class="text-xs tracking-[0.15em] uppercase text-fg-muted mb-1">신부</p>
+          <p class="font-heading text-base mb-2">최다나</p>
+          <p class="text-sm text-fg-light mb-3">국민 079-21-0818-207</p>
+          <button class="kr-copy-btn" data-copy="079210818207">복사</button>
+        </div>
+
+        <!-- Card 2: Father of Bride -->
+        <div class="kr-bank-card">
+          <p class="text-xs tracking-[0.15em] uppercase text-fg-muted mb-1">신부측 아버지</p>
+          <p class="font-heading text-base mb-2">최성혁</p>
+          <p class="text-sm text-fg-light mb-3">국민 680-21-0090-858</p>
+          <button class="kr-copy-btn" data-copy="68021009858">복사</button>
+        </div>
+
+        <!-- Card 3: Mother of Bride -->
+        <div class="kr-bank-card">
+          <p class="text-xs tracking-[0.15em] uppercase text-fg-muted mb-1">신부측 어머니</p>
+          <p class="font-heading text-base mb-2">김경희</p>
+          <p class="text-sm text-fg-light mb-3">국민 817-21-0016-131</p>
+          <button class="kr-copy-btn" data-copy="817210016131">복사</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 3: Story Polaroid ===== -->
+  <section class="story-polaroid-page">
+    <div class="page-hero">
+      <h1 id="kr-story-title" class="hero-title"></h1>
+    </div>
+
+    <div class="page-statement" id="kr-story-statement">
+      <p class="statement-text" id="kr-story-statement-text"></p>
+    </div>
+
+    <div id="kr-story-chapters" class="story-polaroid-chapters"></div>
+  </section>
+
+</div>

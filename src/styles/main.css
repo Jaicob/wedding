@@ -540,3 +540,42 @@ h2, h3, h4, h5, h6 {
     height: 22px;
   }
 }
+
+/* ===== Korean Page — Bank Cards ===== */
+
+.kr-bank-card {
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-bg-dark);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.kr-copy-btn {
+  display: inline-block;
+  padding: 0.4rem 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.kr-copy-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.kr-copy-btn.kr-copy-done {
+  border-color: var(--color-fg-muted);
+  color: var(--color-fg-muted);
+  cursor: default;
+}
+
+.kr-copy-btn.kr-copy-done:hover {
+  background: transparent;
+  color: var(--color-fg-muted);
+}

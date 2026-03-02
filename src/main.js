@@ -5,11 +5,9 @@ import { registerPage, setContainer, startRouter, onBeforeNavigate, onAfterNavig
 import { renderHeader, initHeader } from './components/header.js';
 import { passwordPage } from './pages/password.js';
 import { homePage, destroyHome } from './pages/home.js';
-import { storyPage } from './pages/story.js';
 import { travelPage } from './pages/travel.js';
 import { schedulePage } from './pages/schedule.js';
 import { registryPage } from './pages/registry.js';
-import { storyBookPage, destroyStoryBook } from './pages/our-story-book.js';
 import { storyPolaroidPage, destroyStoryPolaroid } from './pages/story-polaroid.js';
 import { valentinePage, destroyValentine } from './pages/valentine.js';
 import { invitePage, destroyInvite } from './pages/invite.js';
@@ -21,7 +19,7 @@ const headerContainer = document.getElementById('header-container');
 setContainer(app);
 
 // Track cleanup functions per page
-const cleanups = { home: destroyHome, 'our-story-book': destroyStoryBook, 'story-polaroid': destroyStoryPolaroid, valentine: destroyValentine, invite: destroyInvite };
+const cleanups = { home: destroyHome, 'story-polaroid': destroyStoryPolaroid, valentine: destroyValentine, invite: destroyInvite };
 
 // Register pages
 registerPage('password', passwordPage);
@@ -30,7 +28,6 @@ registerPage('story', storyPolaroidPage);
 registerPage('travel', travelPage);
 registerPage('schedule', schedulePage);
 registerPage('registry', registryPage);
-registerPage('our-story-book', storyBookPage);
 registerPage('story-polaroid', storyPolaroidPage);
 registerPage('valentine', valentinePage);
 registerPage('invite', invitePage);

@@ -24,20 +24,6 @@
       "seconds": "Seconds"
     }
   },
-  "story": {
-    "title": "Our Story",
-    "chest": "This was our story.",
-    "hint": "Explore the illustration to discover our journey",
-    "wisdom": "Love is patient, love is kind. It always protects, always trusts, always hopes, always perseveres.",
-    "placeholder": "A chapter of our story...",
-    "entries": [
-      "The day we first met — a moment that changed everything.",
-      "Our first adventure together — the start of something beautiful.",
-      "The moment we knew — when words weren't needed anymore.",
-      "Growing together — building a life side by side.",
-      "The proposal — a question and an answer that lasts forever."
-    ]
-  },
   "travel": {
     "title": "Travel",
     "message": "We know that traveling for a destination wedding can take extra time and planning, and we completely understand if you’re not able to join us in person. We are so grateful for your love and well wishes.\n\nIf you’re able to make the trip, we’re so excited to celebrate together! Below you’ll find directions to the venue and a few places to stay.",

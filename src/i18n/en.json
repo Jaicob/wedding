@@ -56,7 +56,7 @@
     ],
     "hotel": {
       "name": "Hotel Wailea",
-      "description": "We're getting married at Hotel Wailea, and have special discounted rates for our guests. Book through the Hotel Wailea website and enter the promo code below. The <span class=\"text-accent font-medium\">25%</span> discount code is valid between August 25 - September 2, 2026.",
+      "description": "We're getting married at Hotel Wailea, and have special discounted rates for our guests. Book through the Hotel Wailea website and enter the promo code below. The <span class=\"text-accent font-medium\">25%</span> discount code is valid for stays between August 25 - September 2, 2026.",
       "note": "We'd love for everyone to stay close by and make a weekend of it, so we recommend booking early before rooms fill up.",
       "promoLabel": "Discount Code",
       "link": "https://www.hotelwailea.com",
@@ -69,8 +69,7 @@
     ],
     "tips": [
       "Late August in Maui is warm and sunny — expect temperatures around 85°F (29°C).",
-      "Don't forget reef-safe sunscreen! Hawaii law requires it to protect the coral reefs.",
-      "Planning to snorkel or hit the beaches? Bringing your own snorkel gear and swim essentials is a great idea — rentals can add up quickly, and you'll be ready to jump right in."
+      "Don't forget reef-safe sunscreen! Hawaii law requires it to protect the coral reefs."
     ]
   },
   "schedule": {
@@ -106,7 +105,7 @@
     "rsvp": "RSVP",
     "mailing": "Share Mailing Address",
     "rsvpBy": "Please respond by May 1, 2026",
-    "alreadyRsvp": "If you have already completed the RSVP, you can view more information about the wedding such as travel tips, hotels, and more about the couple.",
+    "alreadyRsvp": "If you have already completed the RSVP, you can view  more information about the wedding such as hotel discount, travel tips, and more about the couple.",
     "viewMore": "View Wedding Details"
   },
   "storyBook": {

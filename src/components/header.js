@@ -31,9 +31,7 @@ export function renderHeader() {
               ${t(l.key)}
             </a>
           `).join('')}
-          <a href="https://withjoy.com/dana-jaicob/rsvp"
-             target="_blank"
-             rel="noopener noreferrer"
+          <a href="#/invite"
              class="nav-link text-sm tracking-widest uppercase transition-colors duration-200 text-fg-muted hover:text-fg">
             RSVP
           </a>

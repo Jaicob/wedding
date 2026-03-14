@@ -83,7 +83,7 @@
     "title": "일정",
     "subtitle": "최종 일정은 결혼식이 가까워지면 다시 안내드리겠습니다. 아래는 예상 일정입니다.",
     "date": "2026년 8월 28일",
-    "venue": "호텔 와일레아",
+    "venue": "호텔 와일레아, 555 Kaukahi Street, Wailea, HI",
     "events": [
       { "time": "오후 4:50", "title": "하객 도착", "icon": "arrive" },
       { "time": "오후 5:15", "title": "결혼식", "icon": "ceremony" },

@@ -77,7 +77,7 @@
     "title": "Schedule",
     "subtitle": "We'll share the final timeline closer to the wedding, but here is the expected schedule.",
     "date": "August 28, 2026",
-    "venue": "Hotel Wailea",
+    "venue": "Hotel Wailea, 555 Kaukahi Street, Wailea, HI",
     "events": [
       { "time": "4:50 PM", "title": "Guests Arrive", "icon": "arrive" },
       { "time": "5:15 PM", "title": "Ceremony", "icon": "ceremony" },

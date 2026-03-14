@@ -1,5 +1,4 @@
 import gsap from 'gsap';
-import { verifyPassword, setAuthenticated } from '../utils/auth.js';
 import { t, getLocale, setLocale } from '../utils/i18n.js';
 import { navigate, getCurrentPage } from '../utils/router.js';
 import { guests } from '../data/guests.js';
@@ -11,9 +10,7 @@ export const invitePage = {
   init(container) {
     const sealed = container.querySelector('#invite-sealed');
     const reveal = container.querySelector('#invite-reveal');
-    const input = container.querySelector('#invite-input');
-    const submit = container.querySelector('#invite-submit');
-    const error = container.querySelector('#invite-error');
+    const continueBtn = container.querySelector('#invite-continue');
 
     // Personalization from ?g= query param
     const dearEl = container.querySelector('#invite-dear');
@@ -28,9 +25,7 @@ export const invitePage = {
     container.querySelector('#invite-line1').textContent = t('invite.line1');
     container.querySelector('#invite-line2').textContent = t('invite.line2');
     container.querySelector('#invite-couple').textContent = t('invite.couple');
-    input.placeholder = t('invite.placeholder');
-    submit.textContent = t('invite.submit');
-    error.textContent = t('invite.error');
+    continueBtn.textContent = t('invite.continue');
 
     // Set revealed-state i18n text
     container.querySelector('#invite-date').textContent = t('invite.date');
@@ -60,33 +55,9 @@ export const invitePage = {
     tl.from('#invite-line1', { opacity: 0, y: 12, duration: 1 }, guestName ? '-=0.7' : 0)
       .from('#invite-line2', { opacity: 0, y: 12, duration: 1 }, '-=0.7')
       .from('#invite-couple', { opacity: 0, y: 16, duration: 1.2 }, '-=0.6')
-      .from('#invite-input', { opacity: 0, duration: 0.8 }, '-=0.4')
-      .from('#invite-submit', { opacity: 0, duration: 0.6 }, '-=0.3');
+      .from('#invite-continue', { opacity: 0, duration: 0.6 }, '-=0.3');
 
-    input.focus();
-
-    async function attemptLogin() {
-      const value = input.value;
-      if (!value) return;
-
-      const valid = await verifyPassword(value);
-      if (!valid) {
-        gsap.fromTo(input, { x: -6 }, { x: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
-        error.classList.remove('opacity-0');
-        error.classList.add('opacity-100');
-        input.value = '';
-        input.focus();
-        setTimeout(() => {
-          error.classList.remove('opacity-100');
-          error.classList.add('opacity-0');
-        }, 2500);
-        return;
-      }
-
-      // Success
-      setAuthenticated();
-
-      // Animate sealed section out — slow dissolve
+    function showReveal() {
       gsap.to(sealed, {
         opacity: 0,
         y: -20,
@@ -94,11 +65,8 @@ export const invitePage = {
         ease: 'power2.inOut',
         onComplete: () => {
           sealed.style.display = 'none';
-
-          // Show revealed section as flex for vertical centering
           reveal.style.display = 'block';
 
-          // Animate flowers with responsive opacity
           const isMobile = window.innerWidth <= 950;
           const flowerOpacity = isMobile ? 0.3 : 0.5;
           gsap.to(reveal.querySelectorAll('.invite-flower'), {
@@ -107,7 +75,6 @@ export const invitePage = {
             ease: 'power3.out',
           });
 
-          // Animate content elements
           const els = reveal.querySelectorAll('.invite-el');
           els.forEach((el, i) => {
             gsap.to(el, {
@@ -122,10 +89,7 @@ export const invitePage = {
       });
     }
 
-    submit.addEventListener('click', attemptLogin);
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') attemptLogin();
-    });
+    continueBtn.addEventListener('click', showReveal);
   },
 };
 

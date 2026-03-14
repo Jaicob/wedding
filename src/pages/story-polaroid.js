@@ -98,7 +98,8 @@ function buildChapters(container) {
           <h2 class="section-heading">${ch.title}</h2>
           <div class="body-text">${ch.text}</div>
         </div>
-      </article>`;
+      </article>
+      <p class="story-tap-hint text-center text-sm tracking-[0.2em] text-accent mt-2 mb--2 story-tap-hint-pulse">↓ ${esc(t('storyBook.tapHint'))} ↓</p>`;
 
       chapterIndex++;
     }
@@ -139,11 +140,6 @@ function buildChapters(container) {
       </div>`;
       } else {
         const stagger = flowIndex % 4;
-        const isFirst = entryIndex === 0;
-        if (isFirst) {
-          markup += `
-      <p id="story-tap-hint" class="text-center text-sm tracking-[0.2em] text-accent mt-2 mb--2 story-tap-hint-pulse">↓ ${esc(t('storyBook.tapHint'))} ↓</p>`;
-        }
         markup += `
       <div class="story-photo-single" data-stagger="${stagger}">
         <div class="story-polaroid-parallax">
@@ -265,10 +261,12 @@ function setupAnimations(container) {
 /* ── Modal ─────────────────────────────────────────────── */
 
 function dismissTapHint() {
-  const hint = document.getElementById("story-tap-hint");
-  if (hint && hint.style.opacity !== "0") {
-    gsap.to(hint, { opacity: 0, y: -8, duration: 0.6, ease: "power2.out", onComplete: () => hint.remove() });
-  }
+  const hints = document.querySelectorAll(".story-tap-hint");
+  hints.forEach((hint) => {
+    if (hint.style.opacity !== "0") {
+      gsap.to(hint, { opacity: 0, y: -8, duration: 0.6, ease: "power2.out", onComplete: () => hint.remove() });
+    }
+  });
 }
 
 function openPolaroidModal(frame) {

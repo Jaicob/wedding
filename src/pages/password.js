@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { verifyPassword, setAuthenticated } from '../utils/auth.js';
 import { navigate, getCurrentPage } from '../utils/router.js';
 import { t, getLocale, setLocale } from '../utils/i18n.js';
+import { renderHeader, initHeader } from '../components/header.js';
 import html from './password.html?raw';
 
 export const passwordPage = {
@@ -60,22 +61,54 @@ export const passwordPage = {
       // Fade out the form
       gsap.to(form, { opacity: 0, y: 8, duration: 0.6, ease: 'power2.inOut' });
 
-      // Slide logo up and shrink
-      gsap.to(logo, {
-        y: -(window.innerHeight / 2 - 40),
-        scale: 0.5,
+      // Render the real header invisibly so we can measure the logo's target position
+      const headerContainer = document.getElementById('header-container');
+      headerContainer.innerHTML = renderHeader();
+      initHeader();
+      const header = headerContainer.querySelector('#site-header');
+      header.style.visibility = 'hidden';
+
+      const headerLogoEl = headerContainer.querySelector('a[href="#/home"]');
+      const targetRect = headerLogoEl.getBoundingClientRect();
+      const logoRect = logo.getBoundingClientRect();
+
+      // Reparent logo to body with fixed positioning so scene fade doesn't affect it
+      const fixedLogo = logo.cloneNode(true);
+      fixedLogo.id = 'pw-logo-fixed';
+      Object.assign(fixedLogo.style, {
+        position: 'fixed',
+        left: `${logoRect.left}px`,
+        top: `${logoRect.top}px`,
+        width: `${logoRect.width}px`,
+        margin: '0',
+        zIndex: '9999',
+        transformOrigin: 'top left',
+      });
+      document.body.appendChild(fixedLogo);
+      logo.style.visibility = 'hidden';
+
+      // Scale to match header logo size (use height as the reference)
+      const targetScale = targetRect.height / logoRect.height;
+
+      gsap.to(fixedLogo, {
+        x: targetRect.left - logoRect.left,
+        y: targetRect.top - logoRect.top,
+        scale: targetScale,
         duration: 1,
         delay: 0.3,
         ease: 'power3.inOut',
       });
 
-      // Fade out scene and navigate
+      // Fade out scene (logo is now outside, unaffected) and navigate
       gsap.to(scene, {
         opacity: 0,
         duration: 0.6,
         delay: 1,
         onComplete: () => {
-          navigate('home', { replace: true });
+          // Reveal the real header and remove the floating logo
+          header.style.visibility = '';
+          fixedLogo.remove();
+          navigate('home', { replace: true, skipTransition: true });
         },
       });
     }

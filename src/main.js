@@ -40,6 +40,8 @@ function updateHeader(pageName) {
     headerContainer.innerHTML = '';
     return;
   }
+  // Password page already rendered and revealed the header — skip
+  if (previousPage === 'password') return;
   headerContainer.innerHTML = renderHeader();
   initHeader();
   gsap.from('#site-header', { opacity: 0, y: -20, duration: 0.4, ease: 'power2.out' });
@@ -53,10 +55,11 @@ onBeforeNavigate(async (name, oldPage, skipTransition) => {
     cleanups[oldPage]();
   }
 
+  previousPage = oldPage;
+
   if (skipTransition || !oldPage) return;
 
   await gsap.to(app, { opacity: 0, duration: 0.25, ease: 'power2.in' }).then();
-  previousPage = oldPage;
 });
 
 // Page transition: fade in new content + update header

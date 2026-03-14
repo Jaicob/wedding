@@ -31,8 +31,8 @@ export const passwordPage = {
     });
 
     // Entrance animation — slower, more elegant
-    gsap.from(logo, { opacity: 0, y: -20, duration: 1.2, ease: 'power3.out' });
-    gsap.from(form, { opacity: 0, y: 14, duration: 1, delay: 0.5, ease: 'power3.out' });
+    gsap.fromTo(logo, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' });
+    gsap.fromTo(form, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: 'power3.out' });
 
     input.focus();
 

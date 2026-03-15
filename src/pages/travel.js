@@ -8,8 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const travelPage = {
   html,
-  guard: () => isAuthenticated(),
-
   init(container) {
     // Bind all data-i18n elements
     container.querySelectorAll('[data-i18n]').forEach(el => {

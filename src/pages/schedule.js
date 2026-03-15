@@ -17,8 +17,6 @@ const ICONS = {
 
 export const schedulePage = {
   html,
-  guard: () => isAuthenticated(),
-
   init(container) {
     container.querySelector('#schedule-title').textContent = t('schedule.title');
     container.querySelector('#schedule-subtitle').textContent = t('schedule.subtitle') || '';

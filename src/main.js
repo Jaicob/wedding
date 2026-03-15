@@ -80,8 +80,8 @@ onAfterNavigate(async (name, skipTransition) => {
   gsap.fromTo(app, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
 });
 
-// Boot
-if (isAuthenticated() && (!window.location.hash || window.location.hash === '#/' || window.location.hash === '#/password')) {
+// Boot — default to home if no specific page requested
+if (!window.location.hash || window.location.hash === '#/' || window.location.hash === '#/password') {
   window.location.hash = '#/home';
 }
 

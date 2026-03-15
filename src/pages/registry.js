@@ -5,8 +5,6 @@ import html from './registry.html?raw';
 
 export const registryPage = {
   html,
-  guard: () => isAuthenticated(),
-
   init(container) {
     container.querySelector('#registry-title').textContent = t('registry.title');
     container.querySelector('#registry-message').textContent = t('registry.message') || '';

@@ -44,7 +44,7 @@ export function navigate(name, options = {}) {
 
 function pageNameFromHash() {
   const hash = window.location.hash.slice(2); // strip "#/"
-  return hash || 'password';
+  return hash || 'home';
 }
 
 async function renderPage(name, skipTransition = false) {

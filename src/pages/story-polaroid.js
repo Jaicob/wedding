@@ -400,7 +400,6 @@ export function destroyStoryPolaroid() {
 
 export const storyPolaroidPage = {
   html,
-  guard: () => isAuthenticated(),
 
   init(container) {
     container.querySelector("#story-polaroid-title").textContent =

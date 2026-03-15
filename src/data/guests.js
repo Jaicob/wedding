@@ -46,5 +46,6 @@ export const guests = {
   'garret-stewart': 'Stewart Family',
   'john-wes-martinez': 'John Wes & Michelle',
   'dan-ahn': 'Dan & Nina',
-  'joon-lee': 'Joon & Michelle'
+  'joon-lee': 'Joon & Michelle',
+  'peter-hung': 'Peter'
 };

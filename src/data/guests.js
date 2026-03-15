@@ -23,7 +23,7 @@ export const guests = {
   'ryan-chernis': 'Ryan',
   'scott-dario': 'Scott',
   'suzana-howell': 'Suzana & Andrew',
-  'carey-stewart': 'Carey Stewart',
+  'carey-stewart': 'Stewart Family',
   'laura-martinez': 'Aunt Laura & Uncle Johnny',
   'eugene-yukin': 'Eugene',
   'marilyn-stewart': 'Grandma',

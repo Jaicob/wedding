@@ -24,6 +24,7 @@ export const guests = {
   'scott-dario': 'Scott',
   'suzana-howell': 'Suzana & Andrew',
   'carey-stewart': 'Stewart Family',
+  'kate': 'Kate',
   'laura-martinez': 'Aunt Laura & Uncle Johnny',
   'eugene-yukin': 'Eugene',
   'marilyn-stewart': 'Grandma',

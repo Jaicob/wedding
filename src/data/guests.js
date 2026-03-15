@@ -9,7 +9,7 @@
  */
 export const guests = {
   'hyunsub-choi': 'Choi Family',
-  'timothy-choi': 'Timoti, Minkyung and Theo',
+  'timothy-choi': 'Timoti, MinKyeong and Theo',
   'sunny-hills': 'Sunny',
   'katie-kim': 'Katie & Eric',
   'jihye-park': 'Jihye',

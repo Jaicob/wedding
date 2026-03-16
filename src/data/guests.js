@@ -20,7 +20,7 @@ export const guests = {
   'jiin-park': 'Jiin',
   'saurabh-sharma': 'Saurabh & Molly',
   'advait-vaishampayan': 'Advait & Samruddhi',
-  'ryan-chernis': 'Ryan',
+  'ryan-chernis': 'Ryan & Elina',
   'scott-dario': 'Scott',
   'suzana-howell': 'Suzana & Andrew',
   'carey-stewart': 'Stewart Family',
@@ -48,5 +48,9 @@ export const guests = {
   'john-wes-martinez': 'John Wes & Michelle',
   'dan-ahn': 'Dan & Nina',
   'joon-lee': 'Joon & Michelle',
-  'peter-hung': 'Peter'
+  'peter-hung': 'Peter',
+  'sangyeol': 'Sangyeol & Hyanghee',
+  'hyejung': 'Hyejung',
+  'jonggon': 'Jonggon 소장님'
+
 };

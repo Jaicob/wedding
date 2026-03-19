@@ -57,12 +57,12 @@
     "hotel": {
       "name": "Hotel Wailea",
       "description": "We're getting married at Hotel Wailea, and have special discounted rates for our guests. Book through the Hotel Wailea website and enter the promo code below. The <span class=\"text-accent font-medium\">25%</span> discount code is valid for stays between August 25 - September 2, 2026.",
-      "note": "We'd love for everyone to stay close by and make a weekend of it, so we recommend booking early before rooms fill up.",
+      "note": "Please note that Hotel Wailea's prices have increased more than we initially anticipated. We've noticed that Airbnb tends to offer better pricing in the Wailea area, so we'd recommend looking into that as an option as well. Whatever you choose, we'd love for everyone to stay close by and make a weekend of it!",
       "promoLabel": "Discount Code",
       "link": "https://www.hotelwailea.com",
       "linkText": "View Hotel"
     },
-    "altHotelsNote": "If you're looking for other options, there are lots of great places to stay nearby in Wailea too — whatever works best for you!",
+    "altHotelsNote": "If you're looking for other options, there are lots of great places to stay nearby in Wailea too. We've found that Airbnb often has more affordable options in the area — whatever works best for you!",
     "altHotels": [
       { "name": "Residence Inn By Marriott Maui Wailea", "link": "https://www.marriott.com/en-us/hotels/hnmri-residence-inn-maui-wailea/overview/" },
       { "name": "Wailea Beach Resort — Marriott, Maui", "link": "https://www.marriott.com/en-us/hotels/hnmmc-wailea-beach-resort-marriott-maui/overview/" }

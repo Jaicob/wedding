@@ -15,7 +15,7 @@ export const guests = {
   'jihye-park': 'Jihye',
   'minjung-cho': 'Minjung Cho',
   'sang-a-lee': 'Sang-a Lee',
-  'ken-han': 'Ken',
+  'ken-han': 'Ken & Marci',
   'mike-mccormick': 'Mike & Amanda',
   'jiin-park': 'Jiin',
   'saurabh-sharma': 'Saurabh & Molly',

@@ -10,7 +10,7 @@
     "travel": "여행 정보",
     "schedule": "일정",
     "registry": "마음 전하실 곳",
-    "faq": "자주 묻는 질문"
+    "faq": "FAQ"
   },
   "home": {
     "date": "2026년 8월 28일",
@@ -90,7 +90,7 @@
     ]
   },
   "faq": {
-    "title": "질문",
+    "title": "질의응답",
     "subtitle": "",
     "items": [
       {

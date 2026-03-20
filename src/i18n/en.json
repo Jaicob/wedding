@@ -64,8 +64,8 @@
     },
     "altHotelsNote": "If you're looking for other options, there are lots of great places to stay nearby in Wailea too. We've found that Airbnb often has more affordable options in the area — whatever works best for you!",
     "altHotels": [
-      { "name": "Residence Inn By Marriott Maui Wailea", "link": "https://www.marriott.com/en-us/hotels/hnmri-residence-inn-maui-wailea/overview/" },
-      { "name": "Wailea Beach Resort — Marriott, Maui", "link": "https://www.marriott.com/en-us/hotels/hnmmc-wailea-beach-resort-marriott-maui/overview/" }
+      { "name": "Mana Kai Maui", "detail": "$200–300/night · 9 min drive to Hotel Wailea", "link": "https://www.manakaimaui.com" },
+      { "name": "Aston Maui Hill Resort", "detail": "$300–370/night · 9 min drive to Hotel Wailea", "link": "https://www.astonmauihill.com" }
     ],
     "tips": [
       "Late August in Maui is warm and sunny — expect temperatures around 85°F (29°C).",

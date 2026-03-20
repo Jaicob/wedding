@@ -64,14 +64,8 @@
     },
     "altHotelsNote": "다른 숙소를 찾고 계시다면 와일레아 주변에 좋은 곳이 많이 있습니다. 에어비앤비에서 더 합리적인 가격의 숙소를 찾으실 수 있습니다 — 편하신 곳으로 선택하세요!",
     "altHotels": [
-      {
-        "name": "레지던스 인 바이 메리어트 마우이 와일레아",
-        "link": "https://www.marriott.com/en-us/hotels/oggri-residence-inn-maui-wailea/overview/"
-      },
-      {
-        "name": "와일레아 비치 리조트 — 메리어트, 마우이",
-        "link": "https://www.marriott.com/en-us/hotels/oggwi-wailea-beach-resort-marriott-maui/overview/"
-      }
+      { "name": "마나 카이 마우이", "detail": "1박 $200–300 · 호텔 와일레아까지 차로 9분", "link": "https://www.manakaimaui.com" },
+      { "name": "아스톤 마우이 힐 리조트", "detail": "1박 $300–370 · 호텔 와일레아까지 차로 9분", "link": "https://www.astonmauihill.com" }
     ],
     "tips": [
       "8월 말 마우이는 따뜻하고 화창합니다 — 약 29°C(85°F)의 기온이 예상됩니다.",

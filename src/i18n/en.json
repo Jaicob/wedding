@@ -9,7 +9,8 @@
     "story": "Our Story",
     "travel": "Travel",
     "schedule": "Schedule",
-    "registry": "Registry"
+    "registry": "Registry",
+    "faq": "FAQs"
   },
   "home": {
     "date": "August 28, 2026",
@@ -86,6 +87,20 @@
       { "time": "7:15 PM", "title": "Dinner", "icon": "dinner" },
       { "time": "8:00 PM", "title": "Let's Dance!", "icon": "dance" },
       { "time": "10:00 PM", "title": "Event Concludes", "icon": "conclude" }
+    ]
+  },
+  "faq": {
+    "title": "FAQs",
+    "subtitle": "A few things you might be wondering — we've got you covered!",
+    "items": [
+      {
+        "question": "What is the dress code?",
+        "answer": "Cocktail attire. The ceremony will be outdoors and the reception indoors. It's going to be warm — expect temps around 85°F — so lighter fabrics and breathable outfits are totally encouraged. Just save the white for the bride! 😉"
+      },
+      {
+        "question": "Are children welcome?",
+        "answer": "Absolutely! Children are welcome at both the ceremony and reception. Just a heads up — Hotel Wailea is an adults-only property, so if you're planning to stay there, you may want to arrange separate accommodations for the little ones."
+      }
     ]
   },
   "registry": {

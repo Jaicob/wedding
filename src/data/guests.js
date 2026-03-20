@@ -51,6 +51,7 @@ export const guests = {
   'peter-hung': 'Peter',
   'sangyeol': 'Sangyeol & Hyanghee',
   'hyejung': 'Hyejung',
-  'jonggon': 'Jonggon 소장님'
+  'jonggon': 'Jonggon 소장님',
+  'aniket': 'Aniket'
 
 };

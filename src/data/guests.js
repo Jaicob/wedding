@@ -53,6 +53,7 @@ export const guests = {
   'hyejung': 'Hyejung',
   'jonggon': 'Jonggon 소장님',
   'aniket': 'Aniket',
-  'yeseul': 'Yeseul'
+  'yeseul': 'Yeseul',
+  'doogi': 'Doogi'
 
 };

@@ -55,6 +55,8 @@ export const guests = {
   'aniket': 'Aniket',
   'yeseul': 'Yeseul',
   'doogi': 'Doogi 두기',
-  'ivy': 'Ivy'
+  'ivy': 'Ivy',
+  'jordan': 'Jordan & Aaron',
+  'julianne': 'Julianne & Rolo'
 
 };

@@ -524,10 +524,20 @@ function wireBankCopy(container) {
 
 /* ── Photo gallery + lightbox ──────────────────────────── */
 
-const GALLERY_PHOTOS = Array.from(
-  { length: 9 },
-  (_, i) => `${import.meta.env.BASE_URL}gallery/kr-${i + 1}.jpg`,
-);
+// Imported through Vite so each file gets a content-hashed URL — changing a
+// photo produces a new URL, so browsers never serve a stale cached version.
+const galleryModules = import.meta.glob('../assets/gallery/kr-*.jpg', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+const GALLERY_PHOTOS = Object.keys(galleryModules)
+  .sort((a, b) => {
+    const na = parseInt(a.match(/kr-(\d+)/)[1], 10);
+    const nb = parseInt(b.match(/kr-(\d+)/)[1], 10);
+    return na - nb;
+  })
+  .map((key) => galleryModules[key]);
 
 let galleryLightbox = null;
 let galleryIndex = 0;

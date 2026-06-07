@@ -126,6 +126,9 @@ function buildChapters(container) {
         </div>
       </article>`;
       chapterIndex++;
+      // Tap hint above each chapter's photos
+      markup += `
+      <p class="kr-tap-hint text-center text-sm tracking-[0.2em] text-accent mt-2 mb--2 story-tap-hint-pulse">↓ ${esc(t('storyBook.tapHint'))} ↓</p>`;
     }
 
     if (isPair) {
@@ -164,11 +167,6 @@ function buildChapters(container) {
       </div>`;
       } else {
         const stagger = flowIndex % 4;
-        const isFirst = entryIndex === 0;
-        if (isFirst) {
-          markup += `
-      <p id="kr-tap-hint" class="text-center text-sm tracking-[0.2em] text-accent mt-2 mb--2 story-tap-hint-pulse">↓ ${esc(t('storyBook.tapHint'))} ↓</p>`;
-        }
         markup += `
       <div class="story-photo-single" data-stagger="${stagger}">
         <div class="story-polaroid-parallax">
@@ -303,16 +301,8 @@ function setupAnimations(container) {
 
 /* ── Modal ─────────────────────────────────────────────── */
 
-function dismissTapHint() {
-  const hint = document.getElementById('kr-tap-hint');
-  if (hint && hint.style.opacity !== '0') {
-    gsap.to(hint, { opacity: 0, y: -8, duration: 0.6, ease: 'power2.out', onComplete: () => hint.remove() });
-  }
-}
-
 function openPolaroidModal(frame) {
   if (activeOverlay) return;
-  dismissTapHint();
 
   const rect = frame.getBoundingClientRect();
   const img = frame.querySelector('img');

@@ -666,15 +666,8 @@ h2, h3, h4, h5, h6 {
 
 .kr-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.4rem;
-}
-
-@media (min-width: 640px) {
-  .kr-gallery-grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.6rem;
-  }
+  grid-template-columns: repeat(3, 1fr); /* clean 3×3 for 9 photos */
+  gap: 0.5rem;
 }
 
 .kr-gallery-thumb {

@@ -525,7 +525,7 @@ function wireBankCopy(container) {
 /* ── Photo gallery + lightbox ──────────────────────────── */
 
 const GALLERY_PHOTOS = Array.from(
-  { length: 8 },
+  { length: 9 },
   (_, i) => `${import.meta.env.BASE_URL}gallery/kr-${i + 1}.jpg`,
 );
 

@@ -661,3 +661,121 @@ h2, h3, h4, h5, h6 {
     animation: none;
   }
 }
+
+/* ===== Korean Page — Photo Gallery + Lightbox ===== */
+
+.kr-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .kr-gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+.kr-gallery-thumb {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 2 / 3;
+  box-shadow: 0 1px 6px rgba(52, 36, 18, 0.12);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kr-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.kr-gallery-thumb:hover img,
+.kr-gallery-thumb:focus-visible img {
+  transform: scale(1.06);
+}
+
+.kr-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kr-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 14, 6, 0.88);
+}
+
+.kr-lightbox-img {
+  position: relative;
+  z-index: 1;
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 8px;
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5);
+}
+
+.kr-lightbox-close,
+.kr-lightbox-nav {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  color: var(--color-bg);
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kr-lightbox-close:hover,
+.kr-lightbox-nav:hover {
+  opacity: 1;
+}
+
+.kr-lightbox-close {
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 2.25rem;
+}
+
+.kr-lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.75rem;
+  padding: 0.5rem 0.85rem;
+}
+
+.kr-lightbox-prev {
+  left: 0.25rem;
+}
+
+.kr-lightbox-next {
+  right: 0.25rem;
+}
+
+.kr-lightbox-counter {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--color-bg);
+  opacity: 0.8;
+}

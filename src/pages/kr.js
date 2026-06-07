@@ -220,6 +220,22 @@ function setupAnimations(container) {
     });
   }
 
+  const galleryThumbs = container.querySelectorAll('.kr-gallery-thumb');
+  if (galleryThumbs.length) {
+    const st = ScrollTrigger.create({
+      trigger: '#kr-gallery',
+      start: 'top 85%',
+      animation: gsap.from(galleryThumbs, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.06,
+        ease: 'power2.out',
+      }),
+    });
+    triggers.push(st);
+  }
+
   container
     .querySelectorAll(
       '.story-polaroid-chapter, .story-photo-single, .story-photo-pair, .story-photo-final',
@@ -506,6 +522,112 @@ function wireBankCopy(container) {
   });
 }
 
+/* ── Photo gallery + lightbox ──────────────────────────── */
+
+const GALLERY_PHOTOS = Array.from(
+  { length: 8 },
+  (_, i) => `${import.meta.env.BASE_URL}gallery/kr-${i + 1}.jpg`,
+);
+
+let galleryLightbox = null;
+let galleryIndex = 0;
+let galleryKeyHandler = null;
+
+function buildGallery(container) {
+  const grid = container.querySelector('#kr-gallery');
+  if (!grid) return;
+  grid.innerHTML = GALLERY_PHOTOS.map(
+    (src, i) => `
+      <button class="kr-gallery-thumb" type="button" data-index="${i}" aria-label="사진 ${i + 1} 크게 보기">
+        <img src="${src}" alt="다나 & 제이콥" loading="lazy">
+      </button>`,
+  ).join('');
+}
+
+function renderLightboxImage() {
+  if (!galleryLightbox) return;
+  const img = galleryLightbox.querySelector('.kr-lightbox-img');
+  const counter = galleryLightbox.querySelector('.kr-lightbox-counter');
+  img.src = GALLERY_PHOTOS[galleryIndex];
+  if (counter) counter.textContent = `${galleryIndex + 1} / ${GALLERY_PHOTOS.length}`;
+  gsap.fromTo(
+    img,
+    { opacity: 0, scale: 0.98 },
+    { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' },
+  );
+}
+
+function stepLightbox(dir) {
+  galleryIndex = (galleryIndex + dir + GALLERY_PHOTOS.length) % GALLERY_PHOTOS.length;
+  renderLightboxImage();
+}
+
+function closeLightbox() {
+  if (!galleryLightbox) return;
+  const overlay = galleryLightbox;
+  galleryLightbox = null;
+  if (galleryKeyHandler) {
+    window.removeEventListener('keydown', galleryKeyHandler);
+    galleryKeyHandler = null;
+  }
+  gsap.to(overlay, {
+    opacity: 0,
+    duration: 0.2,
+    ease: 'power2.in',
+    onComplete: () => {
+      overlay.remove();
+      // Only release the scroll lock if no new lightbox opened during the fade.
+      if (!galleryLightbox) document.body.style.overflow = '';
+    },
+  });
+}
+
+function openLightbox(index) {
+  if (galleryLightbox) return;
+  galleryIndex = index;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'kr-lightbox';
+  overlay.innerHTML = `
+    <div class="kr-lightbox-backdrop"></div>
+    <button class="kr-lightbox-close" type="button" aria-label="닫기">&times;</button>
+    <button class="kr-lightbox-nav kr-lightbox-prev" type="button" aria-label="이전 사진">&#8249;</button>
+    <img class="kr-lightbox-img" src="" alt="다나 & 제이콥">
+    <button class="kr-lightbox-nav kr-lightbox-next" type="button" aria-label="다음 사진">&#8250;</button>
+    <span class="kr-lightbox-counter"></span>
+  `;
+  document.body.appendChild(overlay);
+  galleryLightbox = overlay;
+  document.body.style.overflow = 'hidden';
+
+  renderLightboxImage();
+  gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
+
+  overlay.querySelector('.kr-lightbox-backdrop').addEventListener('click', closeLightbox);
+  overlay.querySelector('.kr-lightbox-close').addEventListener('click', closeLightbox);
+  overlay.querySelector('.kr-lightbox-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    stepLightbox(-1);
+  });
+  overlay.querySelector('.kr-lightbox-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    stepLightbox(1);
+  });
+
+  galleryKeyHandler = (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') stepLightbox(-1);
+    else if (e.key === 'ArrowRight') stepLightbox(1);
+  };
+  window.addEventListener('keydown', galleryKeyHandler);
+}
+
+function handleGalleryClick(e) {
+  const thumb = e.target.closest('.kr-gallery-thumb');
+  if (!thumb) return;
+  openLightbox(parseInt(thumb.dataset.index, 10) || 0);
+}
+
 /* ── Lifecycle ─────────────────────────────────────────── */
 
 export function destroyKr() {
@@ -525,6 +647,15 @@ export function destroyKr() {
 
   triggers.forEach((st) => st.kill());
   triggers.length = 0;
+
+  // Tear down photo lightbox
+  if (galleryLightbox) {
+    if (galleryKeyHandler) window.removeEventListener('keydown', galleryKeyHandler);
+    galleryKeyHandler = null;
+    galleryLightbox.remove();
+    galleryLightbox = null;
+    document.body.style.overflow = '';
+  }
 
   // Tear down background music
   clearInteractionListeners();
@@ -578,6 +709,10 @@ export const krPage = {
 
     // Background music
     setupMusic(container);
+
+    // Photo gallery
+    buildGallery(container);
+    container.querySelector('#kr-gallery').addEventListener('click', handleGalleryClick);
 
     // Story section i18n
     container.querySelector('#kr-story-title').textContent = t('storyBook.title');

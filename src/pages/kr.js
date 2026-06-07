@@ -406,6 +406,74 @@ function handleChapterClick(e) {
   openPolaroidModal(frame);
 }
 
+/* ── Background music ──────────────────────────────────── */
+
+const MUSIC_SRC = `${import.meta.env.BASE_URL}assets/warm-welcome.mp3`;
+const MUSIC_VOLUME = 0.35;
+const INTERACTION_EVENTS = ['pointerdown', 'keydown', 'touchstart'];
+
+let bgMusic = null;
+let musicToggleBtn = null;
+let firstInteractionHandler = null;
+
+function updateMusicButton() {
+  if (!musicToggleBtn) return;
+  const playing = !!bgMusic && !bgMusic.paused;
+  musicToggleBtn.classList.toggle('is-playing', playing);
+  musicToggleBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+}
+
+function clearInteractionListeners() {
+  if (!firstInteractionHandler) return;
+  INTERACTION_EVENTS.forEach((evt) =>
+    window.removeEventListener(evt, firstInteractionHandler),
+  );
+  firstInteractionHandler = null;
+}
+
+function setupMusic(container) {
+  musicToggleBtn = container.querySelector('#kr-music-toggle');
+  if (!musicToggleBtn) return;
+
+  bgMusic = new Audio(MUSIC_SRC);
+  bgMusic.loop = true;
+  bgMusic.volume = MUSIC_VOLUME;
+  bgMusic.preload = 'auto';
+
+  // Only reveal the control once the file is confirmed playable. If the
+  // track hasn't been added yet, `error` fires and the button stays hidden.
+  bgMusic.addEventListener(
+    'loadedmetadata',
+    () => musicToggleBtn.classList.add('is-ready'),
+    { once: true },
+  );
+  bgMusic.addEventListener('error', () =>
+    musicToggleBtn.classList.remove('is-ready'),
+  );
+  bgMusic.addEventListener('play', updateMusicButton);
+  bgMusic.addEventListener('pause', updateMusicButton);
+
+  musicToggleBtn.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play().catch(() => {});
+    } else {
+      bgMusic.pause();
+    }
+  });
+
+  // Attempt autoplay; most browsers block sound until a user gesture, so
+  // fall back to starting on the visitor's first interaction with the page.
+  bgMusic.play().catch(() => {
+    firstInteractionHandler = () => {
+      clearInteractionListeners();
+      if (bgMusic) bgMusic.play().catch(() => {});
+    };
+    INTERACTION_EVENTS.forEach((evt) =>
+      window.addEventListener(evt, firstInteractionHandler, { passive: true }),
+    );
+  });
+}
+
 /* ── Bank copy ─────────────────────────────────────────── */
 
 function wireBankCopy(container) {
@@ -458,6 +526,15 @@ export function destroyKr() {
   triggers.forEach((st) => st.kill());
   triggers.length = 0;
 
+  // Tear down background music
+  clearInteractionListeners();
+  if (bgMusic) {
+    bgMusic.pause();
+    bgMusic.src = '';
+    bgMusic = null;
+  }
+  musicToggleBtn = null;
+
   // Restore previous locale
   if (previousLocale && previousLocale !== getLocale()) {
     setLocale(previousLocale);
@@ -498,6 +575,9 @@ export const krPage = {
 
     // Bank copy buttons
     wireBankCopy(container);
+
+    // Background music
+    setupMusic(container);
 
     // Story section i18n
     container.querySelector('#kr-story-title').textContent = t('storyBook.title');

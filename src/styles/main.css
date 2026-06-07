@@ -579,3 +579,85 @@ h2, h3, h4, h5, h6 {
   background: transparent;
   color: var(--color-fg-muted);
 }
+
+/* ===== Korean Page — Background Music Toggle ===== */
+
+.kr-music-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1100;
+  display: none; /* revealed by JS (.is-ready) once the track loads */
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-bg-dark);
+  background-color: var(--color-bg-light);
+  color: var(--color-accent);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(52, 36, 18, 0.12);
+  transition: background-color 0.25s, color 0.25s, transform 0.2s, box-shadow 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kr-music-toggle.is-ready {
+  display: flex;
+}
+
+.kr-music-toggle:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(35, 82, 184, 0.28);
+}
+
+.kr-music-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.kr-music-toggle .kr-music-icon-on {
+  display: none;
+}
+
+.kr-music-toggle .kr-music-icon-off {
+  display: block;
+}
+
+.kr-music-toggle.is-playing .kr-music-icon-on {
+  display: block;
+}
+
+.kr-music-toggle.is-playing .kr-music-icon-off {
+  display: none;
+}
+
+/* gentle pulse ring while the track is playing */
+.kr-music-toggle.is-playing::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-accent);
+  pointer-events: none;
+  animation: kr-music-pulse 2.4s ease-out infinite;
+}
+
+@keyframes kr-music-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kr-music-toggle.is-playing::after {
+    animation: none;
+  }
+}

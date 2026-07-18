@@ -8,7 +8,6 @@ const navLinks = [
   { page: 'travel', key: 'nav.travel' },
   { page: 'schedule', key: 'nav.schedule' },
   { page: 'faq', key: 'nav.faq' },
-  // { page: 'registry', key: 'nav.registry' },
 ];
 
 export function renderHeader() {
@@ -23,7 +22,7 @@ export function renderHeader() {
           D <span class="text-accent text-lg">&amp;</span> J
         </a>
 
-        <nav class="hidden md:flex items-center gap-6">
+        <nav class="hidden md:flex items-center gap-4 lg:gap-6">
           ${navLinks.map(l => `
             <a href="#/${l.page}"
                class="nav-link text-sm tracking-widest uppercase transition-colors duration-200
@@ -32,6 +31,12 @@ export function renderHeader() {
               ${t(l.key)}
             </a>
           `).join('')}
+          <a href="https://withjoy.com/dana-jaicob/registry"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="nav-link text-sm tracking-widest uppercase transition-colors duration-200 text-fg-muted hover:text-fg">
+            ${t('nav.registry')}
+          </a>
           <a href="#/invite"
              class="nav-link text-sm tracking-widest uppercase transition-colors duration-200 text-fg-muted hover:text-fg">
             RSVP
@@ -61,6 +66,12 @@ export function renderHeader() {
               ${t(l.key)}
             </a>
           `).join('')}
+          <a href="https://withjoy.com/dana-jaicob/registry"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-sm tracking-widest uppercase transition-colors duration-200 text-fg-muted hover:text-fg">
+            ${t('nav.registry')}
+          </a>
           <a href="https://withjoy.com/dana-jaicob/rsvp"
              target="_blank"
              rel="noopener noreferrer"

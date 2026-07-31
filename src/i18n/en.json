@@ -80,12 +80,11 @@
     "date": "August 28, 2026",
     "venue": "Hotel Wailea, 555 Kaukahi Street, Wailea, HI",
     "events": [
-      { "time": "4:50 PM", "title": "Guests Arrive", "icon": "arrive" },
-      { "time": "5:15 PM", "title": "Ceremony", "icon": "ceremony" },
-      { "time": "5:45 PM", "title": "Photo", "icon": "photo" },
-      { "time": "6:00 PM", "title": "Cocktail Hour", "icon": "cocktail" },
-      { "time": "7:15 PM", "title": "Dinner", "icon": "dinner" },
-      { "time": "8:00 PM", "title": "Let's Dance!", "icon": "dance" },
+      { "time": "4:30 PM", "title": "Guests Arrive", "icon": "arrive" },
+      { "time": "5:00 PM", "title": "Ceremony", "icon": "ceremony" },
+      { "time": "5:30 PM", "title": "Cocktail Hour", "icon": "cocktail" },
+      { "time": "6:45 PM", "title": "Dinner", "icon": "dinner" },
+      { "time": "8:20 PM", "title": "Let's Dance!", "icon": "dance" },
       { "time": "10:00 PM", "title": "Event Concludes", "icon": "conclude" }
     ]
   },

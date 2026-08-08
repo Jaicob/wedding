@@ -103,6 +103,10 @@
       {
         "question": "Will parking be available for guests?",
         "answer": "Yes, Hotel Wailea has guest parking spaces for approximately 25 vehicles."
+      },
+      {
+        "question": "Is there a wedding registry?",
+        "answer": "Your presence is enough of a present to us! We don't plan to have a registry at the wedding, but we've created a <a href=\"https://withjoy.com/dana-jaicob/registry\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-accent font-medium underline underline-offset-2 hover:opacity-70 transition-opacity\">Registry page</a> for those of you who would like to support us!"
       }
     ]
   },
